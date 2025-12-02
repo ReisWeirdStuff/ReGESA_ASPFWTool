@@ -1,0 +1,92 @@
+{
+    "metadata": {
+        "version": "a.0.0.1",
+        "description": "SMU image HEX patterns for identifying the platform (just an alternative to PSPID/SubProgram)"
+    },
+    "signatures": [
+        {
+            "family": "AM4",
+            "name": "Summit Ridge",
+            "description": "1x00 CPU",
+            "signature": "01 00 00 00 00 00 00 00 00 00 00 ? 19 00 00 00 00",
+            "offset": 10
+        },
+        {
+            "family": "AM4",
+            "name": "Pinnacle Ridge",
+            "description": "2x00 CPU",
+            "signature": "01 00 00 00 00 ? 00 00 00 00 00 ? 2B 00 00 00 00",
+            "offset": 10
+        },
+        {
+            "family": "AM4",
+            "name": "Raven Ridge",
+            "description": "2x00 APU",
+            "signature": "1E 00 00 00 00 00 00 00 00 00 00 00 00 00 00 FF 03",
+            "offset": -6
+        },
+        {
+            "family": "AM4",
+            "name": "Raven Ridge 2",
+            "description": "30x0 APU",
+            "signature": "25 00 00 00 00 00 00 00 00 00 00 00 00 00 00 FF 03",
+            "offset": -6
+        },
+        {
+            "family": "AM4",
+            "name": "Picasso",
+            "description": "3x00 APU",
+            "signature": "1E 04 00 00 00 00 00 00 00 00 00 00 00 00 00 FF 03",
+            "offset": -6
+        },
+        {
+            "family": "AM4",
+            "name": "Matisse",
+            "description": "3xx0 CPU",
+            "signature": "2E 00 FF FF FF FF 00",
+            "offset": -2
+        },
+        {
+            "family": "AM4",
+            "name": "Renoir",
+            "description": "4xx0 APU",
+            "signature": "37 00 FF FF FF FF 00",
+            "offset": -2
+        },
+        {
+            "family": "AM4",
+            "name": "Vermeer",
+            "description": "5xx0 CPU",
+            "signature": "38 00 FF FF FF FF 00",
+            "offset": -2
+        },
+        {
+            "family": "AM4",
+            "name": "Cezanne",
+            "description": "5000 APU",
+            "signature": "01 00 00 00 00 00 ? 40 00 FF FF FF FF",
+            "offset": 5
+        },
+        {
+            "family": "AM5",
+            "name": "Raphael",
+            "description": "7000 CPU",
+            "signature": "54 00 00 00 00 00 00 00 00 ? ? ? ? 00 00 00 00 00 00 00 00 00 00 00 00 00 08 00 01 00",
+            "offset": -98
+        },
+        {
+            "family": "AM5",
+            "name": "Phoenix",
+            "description": "7000 APU",
+            "signature": "01 00 00 00 02 00 00 00 00 00 04 00 ? ? ? 00 ? 10 01 81 00 00 00 00 ? ? 4C",
+            "offset": -72
+        },
+        {
+            "family": "AM5",
+            "name": "Granite Ridge",
+            "description": "9000 CPU",
+            "signature": "62 00 00 00 00 00 00 00 00 ? ? ? ? 00 00 00 00 00 00 00 00 00 00 00 00 00 08 00 01 00",
+            "offset": -98
+        }
+    ]
+}

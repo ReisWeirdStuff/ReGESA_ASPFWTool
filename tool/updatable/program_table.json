@@ -1,0 +1,118 @@
+{
+    "metadata": {
+        "version": "a.0.0.0",
+        "description": "Program/Platform Table Codename <-> PSPID Map (Unverified PSPID / AndMask TBD)"
+    },
+    "programs": {
+        "Excavator": {
+            "_comment": "Family 15h Models 60h-6Fh, 0x10220BXX",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0x10220B00"
+        },
+        "Zeppelin": {
+            "_comment": "Family 17h Models 00h-0Fh, 0xBC0900XX | ZP",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC090000"
+        },
+        "Raven": {
+            "_comment": "Family 17h Models 10h-1Fh, 0xBC0A00XX | RV",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0A0000"
+        },
+        "Raven2": {
+            "_comment": "Family 17h Models 20h-2Fh, 0xBC0A01XX | RV2",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0A0100"
+        },
+        "Starship": {
+            "_comment": "Family 17h Models 30h-3Fh, 0xBC0B00XX | SSP",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0B0000"
+        },
+        "Renoir": {
+            "_comment": "Family 17h Models 60h-6Fh, 0xBC0C00XX | RN",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0C0000"
+        },
+        "Matisse": {
+            "_comment": "Family 17h Models 70h-7Fh, 0xBC0B0500 | MTS",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0B0500"
+        },
+        "Van Gogh": {
+            "_comment": "Family 17h Models 90h-9Fh, 0xBC0C0000 | VN",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0C0000"
+        },
+        "Mendocino": {
+            "_comment": "Family 17h Models A0h-AFh, BC0D0900 | MDN",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0900"
+        },
+        "Genesis": {
+            "_comment": "Family 19h Models 00h-0Fh, 0xBC0B0DXX | GN",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0B0D00"
+        },
+        "Vermeer": {
+            "_comment": "Family 19h Models 20h-2Fh, 0xBC0B0000, 0xBC0B01XX | VMR",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0B0000"
+        },
+        "Rembrandt": {
+            "_comment": "Family 19h Models 40h-4Fh, 0xBC0D02XX | RMB ",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0200"
+        },
+        "Cezanne": {
+            "_comment": "Family 19h Models 50h-5Fh, 0xBC0C0140 | CZN ",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0C0140"
+        },
+        "Raphael": {
+            "_comment": "Family 19h Models 60h-6Fh, 0xBC0D0300 | RPL",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0300"
+        },
+        "Phoenix": {
+            "_comment": "Family 19h Models 70h-77h, 0xBC0D0400 | PHX",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0400"
+        },
+        "Phoenix 2": {
+            "_comment": "Family 19h Models 78h-7Fh, 0xBC0D0B00 | PHX2",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0B00"
+        },
+        "MI300A": {
+            "_comment": "Family 19h Models 90h-9Fh, 0xBC0D0600 | MI300A",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0D0600"
+        },
+        "Strix Point 1": {
+            "_comment": "Family 1Ah Models 20h-2Fh, 0xBC0E0200 | STX1",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0200"
+        },
+        "Strix Point 2": {
+            "_comment": "Family 1Ah Models 30h-37h, TBD | STX2",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0200"
+        },
+        "Granite Ridge": {
+            "_comment": "Family 1Ah Models 40h-4Fh | Granite Ridge",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0400"
+        },
+        "Krackan Point 1": {
+            "_comment": "Family 1Ah Models 60h-6Fh, 0xBC0E0B00 | Krackan1",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0B00"
+        },
+        "Strix Halo": {
+            "_comment": "Family 1Ah Models 70h-7Fh, 0xBC0E0900 | Sarlak",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0900"
+        }
+    }
+}

@@ -1,0 +1,922 @@
+{
+  "metadata": {
+    "version": "a.0.0.0",
+    "description": "AGESA ASP Image Type Entry Version <-> Hash Map (Unverified Data, just for API testing)"
+  },
+  "psp_entries": {
+    "0x00": {
+      "type_name": "AmdPubKey",
+      "description": "AMD public Key",
+      "hashes": {
+        "5C5A0190C654FB35EF91D98C691396EEC5534B5E3334DF75E1972E9A3DCB4B16": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "C5C23C95FF188B5922087B804AA997D5519D3D17D0C0E82F3BA41B7575D0557C": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x01": {
+      "type_name": "PspBootLoader",
+      "description": "PSP Boot Loader firmware",
+      "hashes": {
+        "74B3510FDCDADF4C33AD8F6FA0E6A37B3BBFED3DC15D55769E131B178E59F9DA": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "185BFE2599B9BE1F062F08D0C831445C729023E75012D58B7B072B29CA0E8E15": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "6AC68F31475F3ED1759C35CD93939BBD44DDBC63AC69A79AC0D428A0838C9D4A": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x02": {
+      "type_name": "PspOs",
+      "description": "PSP Secure OS firmware",
+      "hashes": {
+        "8D3C9D93D29893120458DE0839B51162E42EDB1C1B830BE31A9BEA0B58AA55FC": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "319E94C2F4F025449D8DB3885280256476E465B22178A5B3C358F99AFDF1D0AB": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "A0A7AA85FA05043194F6160503D7F51FC113C12809F27F76653F65BB3716FFE2": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x04": {
+      "type_name": "PspNv",
+      "description": "PSP Non Volatile data",
+      "hashes": {
+        "B5A41C3758763BBEC72769FAB4A2533BF2DB0B6312D93D25A695F9E4B9E02260": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x08": {
+      "type_name": "Smu",
+      "description": "SMU offchip firmware",
+      "hashes": {
+        "FC85B13BB9FBC43F27BFCD187D924C1F35CE93BABDE6EB32642FB564F3A0DC2D": "ComboAM5 1.2.0.3e",
+        "16A126FA4FEB5F1C967CFFEA466A9D91908234F9DFC8D14C29E8F9464EB4ACBF": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "1C36E1A631ACC7CD61FD487337BC98C7F538B63070CB9DD51A6FBAF67B3CE476": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "BD235DB04907C70C9DE10F01E7C17F5BA0F088B7BC788953958C7E10CD1ACA2B": "ComboAM5 1.2.0.3f",
+        "E4CEA668A7D0601D9EF2A508E04CD4BF327B73D8C40E050A3FF06C8B96BCC483": "ComboAM5 1.2.0.3g",
+        "63C35ED7E066EE451E6B4D0D270A2558DD78A666400885D6937D28ED88C3184C": "ComboAM5 1.2.0.3g",
+        "577F560017A17E8E69DA1BC484CD3A87503A46FB14096308416B7A2776E0E2CE": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x09": {
+      "type_name": "DbgKey",
+      "description": "AMD Secure Debug Key",
+      "hashes": {
+        "6170168D927DC54334DD0EC7C466C51AC8846E1C41E05FF4C23AF8820ED42ABD": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "14947236B118152AF663C707A1159F3B607A2215FFFA52273BE984BE4DD8BE8E": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x0C": {
+      "type_name": "PspTrustlet",
+      "description": "PSP trustlet Binary",
+      "hashes": {
+        "634A902F5A96E80F7259804D292EBE161B8791E65F5225213E79AAD13D9DC372": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "1B1A37D897A163C99D199B5CCAEF718DD49135400646843517C6058FA04D275C": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x12": {
+      "type_name": "Smu2",
+      "description": "SMU offchip firmware 2",
+      "hashes": {
+        "7D68A7B186D7D916C0F054FA5C160CD874EE61510291B83FE40B911D2D45EB76": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "35CA2EB56644866DB6FAE67480D2553EDEDB2259A93D1DAE821574A410690F0B": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x13": {
+      "type_name": "PspEarlyUnlock",
+      "description": "PSP early secure unlock debug image",
+      "hashes": {
+        "B7ABD6D426B82E208876279AF1BCC2A39066D6AFBB5AC38D5925F039EC0EFF0C": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "D4FDCBE9FA88CFB1EB2B668B9241C88C4F68B8E549D7C43F2F5377EBD4D6BCD0": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "71B3461E6E9184ED2A04BA012AAB733EB22CBD6E675EFC43D6C669C19866A64E": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x1B": {
+      "type_name": "TeeBootDrv",
+      "description": "TEE Boot driver (DrvBoot)",
+      "hashes": {
+        "6CF0941EE8F9D9796C66DB3D445D739B1FDF2E9B271C9DB3FF77E1B83E3EB1DD": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "67CDC3AC77801207AE8DCAB01BAAFA060D7E5CA6BFDD67D9002737E2FE4F64E0": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x1C": {
+      "type_name": "TeeSocDrv",
+      "description": "TEE Soc driver (DrvSoc)",
+      "hashes": {
+        "DB467C1F7EA5CF71D38EFFEBDFD98E8FBC99C9792E4EF3F49903A4B13BEED5AD": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "9D19E928CD4B9D7E29F82B0E97D3FDC6C8E7189C23F73D0B66DF49A68293A08C": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x1D": {
+      "type_name": "TeeDbgDrv",
+      "description": "TEE Dbg driver (DrvDbg)",
+      "hashes": {
+        "5295431383468F5BB7AE85A38F7C84F10A88CA5218A00D1360D8B26A626E7176": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "CCAF3E8503DEB6EB062BAC560E106645F736F6D0644A263CB8E861F74B12FDBD": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x1F": {
+      "type_name": "TeeIntfDrv",
+      "description": "TEE Interface driver (DrvIntf)",
+      "hashes": {
+        "EEE6773FC182889B16F32376F133527BD2DC77E5F4F4ED67AC0DD0655B22E1AC": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "321F5163035C99C622760AF97F9802A18BC7823264B61499F0F6F8E0C11028B7": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x20": {
+      "type_name": "HwIpCfg",
+      "description": "HW IP configuration file",
+      "hashes": {
+        "4BDB8572190B9903533DFF962772D07761ADFB9C102F62213477DE5BB86FA25C": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "9599ECDFD53FBC0465C7FFE98DE243EABCBD5E743703AB2F60921803DCCA6EFC": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "6030B5F9B60993B0E065AE9A2C5BAE196C08C46140DAAD8C843EF49EA6287D4F": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x21": {
+      "type_name": "ikek",
+      "description": "Wrapped iKEK",
+      "hashes": {
+        "E9DF44719DE3DB94DAE46E779E0599DDF64B88FF10FB53EF9A56806E318EC3B3": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "67DFCCA285F99CDE8CFEEC79E2A9C30213B54F8156C7DD6E2DC95B2C58314D10": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x24": {
+      "type_name": "SecureGasket",
+      "description": "Secure Gasket",
+      "hashes": {
+        "135BA7A39B8A272C4160096F2AD6A43D6D5E97F28933E2B345A3ED8B603CED42": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "0FFDE6511B402BAF9F99ABD239F0D791D951CD386FCEE8F2DA94C73991497A72": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "51EE72BB97FF66656203ACA84B705C93517E55DAF469CFA0F2DB3DF6E3B41D89": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x28": {
+      "type_name": "PspSystemDriver",
+      "description": "PSP Entry points to system driver in SPI space",
+      "hashes": {
+        "E95274C5AFB4B9A0C4B7E9F419FD68CEE1D8CB8B21AD40246A8405FB56747C8B": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "39066A772184329389B716503952E756E9867787FB4E2C916BF94B39CA210851": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "B423797E22974240F1D6A60B07050AE3DFB3CE72F4796F732FE85777371A2830": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x2A": {
+      "type_name": "Mp5Fw",
+      "description": "Location field pointing to MP5 FW",
+      "hashes": {
+        "76702AFE249CC6AC6A0B325BF3D9B7AB3AC092B21593F0291AECAED4F47740FE": "ComboAM5 1.2.0.3e",
+        "CA751C30007EFAF08BC9041FCAB6655CA378CE1D4158A92327061D236DCFA2A0": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "2B667041C34E888266736CD8E8F6B64EF5286232F660DD15283801FBAF3F2BAA": "ComboAM5 1.2.0.3f",
+        "F3FF3A2DF788B6169698D52D644FF7CE4BD682EBE1A258290C98C36D72005A1D": "ComboAM5 1.2.0.3g",
+        "DB2938BD71488F316173981DDABD61C9A4D404041F038D98BC3AFE318561836C": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x2D": {
+      "type_name": "RtAbl",
+      "description": "Runtime ABL binary",
+      "hashes": {
+        "62ECC259CB4378BEE485484E6B6EC000DF7B7726580B79A4E661C11137B04558": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x30": {
+      "type_name": "PspAgesaBL0",
+      "description": "PSP AGESA Binary 0",
+      "hashes": {
+        "F7E373368C55371BA9EC8E1664BA7D0A243FFC356DE78C92EA31FF973C2C2840": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "7C310F27FF5A79D65C9E5D5411B73F26FD542CC803A67A8585C87E3CC80B39A6": "ComboAM5 1.2.0.3e",
+        "150F628E370815A8520BE6842D59EB42BF3668D2E52E95950EE70D249538D3C4": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "A5C94DD2C12DFF2F64C76D65B4F773D466AA71BE134FAA90884C93600760AA9F": [
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x3C": {
+      "type_name": "VbiosPreload",
+      "description": "VBIOS pre-load for early initialization and GDB programming",
+      "hashes": {
+        "8FF838416D7A0D375A4FE301438EA469F9F9938AB03B7E82922106ED6C1DEF80": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3EB546AE3218B2145FDFA00AD9D7BBEF5891F084AE26B3F122C9DB0938798823": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x42": {
+      "type_name": "DxioFw",
+      "description": "DXIO Phy FW binary",
+      "hashes": {
+        "6E5A189659C4D7F7CB322ED78E6182C041854A1D4EC642DE628BFF1E05E61EE4": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x44": {
+      "type_name": "UsbPhyFw",
+      "description": "USB unified PHY FW",
+      "hashes": {
+        "721CEA27D41889B7269DB6B6C435EDA90F57C493B332F615A3A09F1778BAC5BD": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "55DAA2157989CDA64EF21EA13A6B2D736ADD838FC9D6B5E36D94EECD71B99BB4": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x45": {
+      "type_name": "tOS",
+      "description": "Entry to load security policy binary for tOS",
+      "hashes": {
+        "FC57B097B47ADAF7A58699CDCA8B59D95E4A6B10A26C220EE60F19A897D0752E": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3905DC14139D7372FE8AB96548AD637B02BE79E5821F8B31089040D16B8A0BF6": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "9B867FDBDED7DC8EBA4D25C8F7FD1221FB1E5A2D1178FEB66031F18426F8BD80": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x47": {
+      "type_name": "DrtmTa",
+      "description": "DRTM TA",
+      "hashes": {
+        "D11AA7604522C8EBAE9E24FC8CB8500019EC99410993CF21D06997DEEFD7C6C1": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "5D7BD01C99940CFFAC27F0BA6DCA5E22E8902747FEC4A80B9FC5847D89211817": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x49": {
+      "type_name": "BiosL2ABDir",
+      "description": "In A/B recovery schema, this entry will be placed in L2A or L2B PSP directory, and point to L2 BIOS Directory header inside the same region (A or B)",
+      "hashes": {
+        "557AE214CBC460600C83B5CDC8B2EA9ED6350CCB0562C0973D0A11E086B0FA92": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "0BC08640998EAE00751954BCCE2FCE699BC3A208C470636A2E90C00540833746": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x50": {
+      "type_name": "PspBlPubKey",
+      "description": "Public keys are needed to certify firmware components and data. Public keys are stored in SPI ROM and are loaded into SRAM. This entry point to the Public keys Table for PSP BL",
+      "hashes": {
+        "88B84103EE5A6D099CE278347E0DEE19ED1C618927973FAB0E6603F4BD6CCCA7": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "8CA73818DFFD3E393D9CC706944927FAC553516C13F352C2D0E22A86725830B2": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x51": {
+      "type_name": "PspTosPubKey",
+      "description": "Public keys are needed to certify firmware components and data. Public keys are stored in SPI ROM and are loaded into SRAM. This entry point to the Public keys Table for PSP tOS",
+      "hashes": {
+        "3ABFBEEEA46824B6995291018E1D605330D6554AC89A8EBE4504CACE59C12C66": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "D02AC3331F94E8512FE3B0854C0EC12AD5DB585029CB733F6D7CFAC07030158D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x54": {
+      "type_name": "PspNvram",
+      "description": "Entry point to PSP NVRAM for RPMC",
+      "hashes": {
+        "3B874D3BA46C638FC3094F8E92FB744CA974893873F8885F54E23760F9B6311B": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x55": {
+      "type_name": "BLAntiRB",
+      "description": "Table of SPL values used by bootloader for FW anti-rollback",
+      "hashes": {
+        "8A23AD17D4B507CBEFFD82D88037EEDED5D723E563E5C3D210FFF585B028B59F": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "F571EF59FC3F2729FF8FA0263F113065B0F9290C0D75556181A35292E7703D46": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x5A": {
+      "type_name": "MSMU0",
+      "description": "MSMU binary 0",
+      "hashes": {
+        "DACA924B54610526A1CE55D25E62D18FC5B7ECBD22DF3F1819D261FFC1FB294A": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "490E2628E52ECBFD0E7160A8696D7865D035EE7E67B92D40B58E334FDA28CD8D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x5C": {
+      "type_name": "SPIRomConf",
+      "description": "SPI-ROM configuration",
+      "hashes": {
+        "5BA7184B1507D83BF902C130A47D73F61AADB5AE956C5F45454B3171A791788D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "15E6F9897113B078E90B580C836BDBE18081A8FCB97532D6FD43F86790FBC451": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x5D": {
+      "type_name": "MPIOOffchipFW",
+      "description": "MPIO Offchip Firmware, responsible for xGMI, WAFL, PCIe, etc. training",
+      "hashes": {
+        "356ECBB1341F0A0A2E6F2C995270A736804FC5475F87E389558254E4C0EBAB09": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "1C31E4EF1155C57DD15EE56EDFCFDDFAF2413714B8F2A5E6A15F194009E20E4D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "2F2BCC047EF72C3F5ECF082982D6DE8F4360F36C555747872447EB1758CBC28F": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x5F": {
+      "type_name": "TPM",
+      "description": "TPMLite binary",
+      "hashes": {
+        "D0D5469818CF48482CF1B3F5BA4B64D5EABDE565DA6600363809630C7179A5D7": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x64": {
+      "type_name": "RasDrv",
+      "description": "RAS Driver",
+      "hashes": {
+        "CAE9B4533AC28C5F26664767557C5FE3AB38089D548957D02788E5737A8D24E7": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "931C35FE2CF77208D65CA081DAD6E61B18DB9F735CC8703524B90505A301B79A": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "8BEEC8A9EFB7B11556EC035777DF2D9AEACF586A6E39454B42938EB59C68B29F": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "1416FD503A277D952256CC4E907A97610CED65EF54CDFCE57BAB541229AD4785": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "FEC32F5F7C2EDC594A70F1D6D441DDA975494A2115A29A29152CA315A90E61C6": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "DCA12B0D8BE81B214B8B1C9910A26557F3FFA2778F17C79E2CA06B539BC4B949": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "422686658B88D9C4CD22DA35B91C588727252C97A4922FF8617FB8FBFCDD4AF7": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "214788A2E677539FA35B4E3F5B5710637D8E9442E45F2E2F167182A4DBB04FEF": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "9645BF5D79BF71CC6C5FA3D7802B67E78A964592DFCD57039CA13C0DA8D8789D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "4409ECF2CC7497FEA2AF5333A1AA5FB091413B0737DEE5E2AAA47257B8C18999": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "A03F731872097513B7038042607F359BABEE4DA16ACA82294C11CC1AA81FFC4F": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "1A4850500139712CCCEDE8D6FB287EB9A37908DBA20A837B5B2CC87880A4DF62": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "C9C7C5E5FD60045B4761D45EBA616F73F644AAA9201895711888BE31B194D418": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x65": {
+      "type_name": "RasApp",
+      "description": "Ras Trusted Application",
+      "hashes": {
+        "5038D680091CF19218C77ADB844F4480148534E8C33A89392D7AA86E0354ADD2": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "9459BE71C4673DEE418CF64E25D1126D3EAF2ED77D1D60C027F7AFAF25A82CF3": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "C1E447A8A43D5CFA6275ACE862ACADFD73CCD5DE3895A1105001DCAAD84B1381": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "544DDFE36FD4C11A40E940D7F11A2565B73A80EFF5E91F8A6748A11CA916D008": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "AEF072ED074914744F98822C00A0A8F8ED8D4D6540B43F9EB3112842ABBB5284": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3AFE4BE0F9F6E2DD6257EB4AEC40C4AD5B957E3F4B07CA03CB93F22A2E00E819": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "6D5D12AE89E277E14D79FC148E966B2E67AF69D836425E11C2CE01176B815EB0": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "D9DDBABD7DD1A98CF43BB37A5135B8DA06F6B338921642B727263071641CCFC5": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "6FFC5FBE6A667F07082C13B20B477616B2F201832B0EED5835AB0E961D1A0BFB": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "57A21402FA446BCDFCB1338349A1382584900EE702D7DBDEDA9118844BC2B849": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "93393B87077BDC4674082C6063E979FFBD52A9C09033C137941290E26452955F": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "2402CEC64A3456394C836A91A389F1AE7A9A37F6A6B913EA1CF642EC79C5A5BC": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "27D7010DBE74798BA9120FB7DC80804BC4706E1E10D108E4B8CE40813613DCF2": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x66": {
+      "type_name": "Fips",
+      "description": "FIPS",
+      "hashes": {
+        "BA837E3D12434395CE1F0AB7A3440F19DC3D8574061EBA19CC33D11764A405C8": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "F64CE84680D0CC0EC0FA4A2A22DC82229F69FD409DE384C252F863AAE0B28886": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "CE0DBB5C63FD3519CD18CC64A8ACF73C3DEF7AEB6BEF2FCF6B3C9072087E2622": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3D027E4AD8C9E8FBD48D2E208065F176119DF2C42B8CF247DEDB8CD69437E58E": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "9E0B2E50D269E47A24B2AD6646E74115C511CB0AFC42EEC7C7D2B396EFE4A9A6": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3D153320C7C209F00B203DAB16E6229E46A7EE1A1FEB6135F9F58D365CA6225D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "0A901ED2A63B2DF1A16FB98FFEAF08793A3222AEBFC1CF386F073845EE2D07EE": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x6D": {
+      "type_name": "RomArmor2",
+      "description": "",
+      "hashes": {
+        "B5A41C3758763BBEC72769FAB4A2533BF2DB0B6312D93D25A695F9E4B9E02260": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "71189F7FB6AED638640078FBA3A35FDA6C39C8962E74DCC75935AAC948DA9063": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x71": {
+      "type_name": "DMCUB_Ins",
+      "description": "PSP Entry for DMCUB (Family 17h Models 90h-9Fh ) Firmware instruction part. It is used for PSP to load the DMCUB firmware instruction part into a trust memory region during pre-OS.",
+      "hashes": {
+        "DD74C492E2CBA5D91701A4CD879506CA284F584F348526325E8523F3A06EC0F1": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3277D6BCB05EDEC1B83717C31DC90B3E6B43D7CEFC7238437425A3DD39B6CC6D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x73": {
+      "type_name": "PspBl2",
+      "description": "PSP Stage 2 Boot Loader firmware - Gets loaded by Stage 1 PSP BL. This entry is required for all the products starting MVG",
+      "hashes": {
+        "411042E0413D2713891043A641A194406A54ACBF0BDCFC3458F74D8297E56B51": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "E4576D744AC82162E2984C3D5006B6B095CF47321E498BC5E10C718DEFD85719": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "2F47FD51C7C9191CDAEF855CA9756451AD01EC292765858EBBAC60BE2A6323DD": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x76": {
+      "type_name": "RIB",
+      "description": "Register Initialization Binary (RIB) - Initialization data / sequences provided by IP teams to configure their hardware. FSDL is provided to the initializing firmware (ABL, VBL, etc.) that processes the RIBs. SubType 0x00 is DF. All other SubTypes are reserved. This is new for MI-200.",
+      "hashes": {
+        "2A67181335A4B696471B6B1D855B53EAA16180C0B63EFAE226DF3230D344C6FA": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "873A38EDB3FB5B5A0B4F49AFDC15402FFF867DEEE25EEB4760B24BAF687D4FC0": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "666D7C9E94F4EA185176C0851090BD6CAF248A6D78297C4648259E5C7A180E34": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x7C": {
+      "type_name": "unknown",
+      "description": "",
+      "hashes": {
+        "CAC6C8232A0BDC8CB7ECA52CB710DB1591C61EA0146C27227F2FA08E304D5064": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x8D": {
+      "type_name": "iKEK_TA",
+      "description": "iKEK_TA: iKEK key used to encrypt SOC agnostic firmware (e.g. Trusted Applications). iKEK_TA is wrapped with iKEK_SOC (e.g. iKEK_Rembrandt).",
+      "hashes": {
+        "9C2863E62F3C4E28C370FF39CE53A403780397611A18718A2CDF5191442FB2C8": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "6B54394E89369837830F5B6A5F72892B44EEC5B4259D1A0FBF97100544E5DFC8": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x90": {
+      "type_name": "MpccxFw",
+      "description": "CCX/Core initialization and power management",
+      "hashes": {
+        "637A5D22B630E3849558BFD9EBA5933ED1CCE094841AC6EFBB18053433953E76": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f"
+        ],
+        "D1E1C775FD59F10C4184E294ED6930A385851378FE472388E1D8439C281B1E8B": "ComboAM5 1.2.0.3g"
+      }
+    },
+    "0x91": {
+      "type_name": "Gmi3PhyFw",
+      "description": "Delivered by MPIO team. Validated with PSP Entry Type 0x43",
+      "hashes": {
+        "07F28860538351501EFD00A61DE5D076B2FAEBFA4FBCD9B4B9554822C0D7C345": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x93": {
+      "type_name": "Pt21",
+      "description": "This firmware will be consumed by offchip module to configure discrete XHCI/AHCI/PCIe",
+      "hashes": {
+        "A0C9499649A180DA8B9D08CBCB1CA9FA53E6152F5474B4D59FC12ADB6919A2D7": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x94": {
+      "type_name": "LsdmaFw",
+      "description": "Manages AMD's HW IP block of LSDMA engines, handles the hardware initialization",
+      "hashes": {
+        "4089F77C8F468E7B44357EC1B5DD4F0BF8094A29F780335DB61A8EEBC9027339": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x95": {
+      "type_name": "SepDxioC20Fw",
+      "description": "Separated DXIO C20 PHY SRAM FW",
+      "hashes": {
+        "56180A484AEB40580BBDDEBD54F26FE0790317B518EC88A1ED9F73606BE6DFBE": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x9A": {
+      "type_name": "miniZSC",
+      "description": "miniZSC MSMU Binary",
+      "hashes": {
+        "5D5D7AD1A1C60A574C8A26A2E7DABE397D0A7E0328F7A2973807494998235665": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "3D7FF2B5BAE948515DE0799036F88CD71A6F2026AFAD6AEC02F2E092857CBEA3": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x9B": {
+      "type_name": "GfxInsFw",
+      "description": "GFX IMU LX7 Instruction firmware",
+      "hashes": {
+        "8C249CED5E85CA1C4A4F57397747E29F99770F7DBA4A059DD471D47AD270086D": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0x9C": {
+      "type_name": "GfxDataFw",
+      "description": "GFX IMU LX7 Data firmware",
+      "hashes": {
+        "0CA170D33ABD182DE5EDC6F112D51F88AD70C451BABA1F73B06653D1450809E4": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0xA0": {
+      "type_name": "S3IMAGE",
+      "description": "",
+      "hashes": {
+        "284DC383727ED681523148756F6DF9729669F42B2A7F65AF068950A102A6C4EE": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ],
+        "2FA89414B9B2B210FBF9CA5FFBE8098BAF418FA1D4915C99404F7C534639557E": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    },
+    "0xA2": {
+      "type_name": "UZSC_RESET_WORKAROUND",
+      "description": "",
+      "hashes": {
+        "94DBD7B04C5E01D8CC70840456E6F622DE7DF5186474FC8BBE5587B74768A91A": [
+          "ComboAM5 1.2.0.3e",
+          "ComboAM5 1.2.0.3f",
+          "ComboAM5 1.2.0.3g"
+        ]
+      }
+    }
+  }
+}
