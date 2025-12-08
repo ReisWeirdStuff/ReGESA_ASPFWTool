@@ -37,7 +37,7 @@ from PySide6.QtWidgets import (
 
 from .hex_viewer import _configure_hex_editor, _hex_dump, _update_hex_editor_selection
 from ..mainwindow_components.common import _mask_u64, _to_signed_64
-from ... import crypto as _crypto
+from ...agesa import crypto as _crypto
 
 
 class NoScrollComboBox(QComboBox):
