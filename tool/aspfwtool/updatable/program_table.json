@@ -1,0 +1,429 @@
+{
+    "metadata": {
+        "version": "Pre-Alpha 25.0.0.0",
+        "description": "Program/Platform Table - PSPID to Codename Mapping",
+        "_note0": "This table is still under construction. Most of the PSPID/Codename/Family/Model mappings should be correct, while some should be treated as rumors.",
+        "_note1": "In most cases, PSPID is only used for consumer platforms (Combo/ISH),",
+        "_note2": "Server platforms use independent PI release and EFS searching configuration bits, ROM splitting flash to 2x16MB or 4x16MB portion for multi generation support."
+    },
+    "programs": {
+        "Bristol Ridge": {
+            "Code": "BR",
+            "AgesaPI": "BristolPI-AM4",
+            "FamilyModel": "Family 15h Models 60h-6Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0x10220B00",
+            "Description": "BR - Bristol Ridge, last pre-Zen architecture (AM4 Excavator)."
+        },
+        "Summit Ridge": {
+            "Code": "ZP",
+            "AgesaPI": "SummitPI-AM4 / SummitPI-SP3r2",
+            "FamilyModel": "Family 17h Models 00h-0Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC090000",
+            "Description": "ZP - Zen, Summit Ridge / Naples / Whitehaven (AM4 / SP3 / SP4)."
+        },
+        "Raven Ridge": {
+            "Code": "RV",
+            "AgesaPI": "RavenPI",
+            "FamilyModel": "Family 17h Models 10h-1Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0A0000",
+            "Description": "RV - Zen+, Raven Ridge APU (AM4 / FP5)."
+        },
+        "Raven Ridge 2": {
+            "Code": "RV",
+            "AgesaPI": "RavenPI / PollockPI",
+            "FamilyModel": "Family 17h Models 20h-2Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0A0100",
+            "Description": "RV - Zen, Dali / Pollock (FP5 / FT5)."
+        },
+        "Starship": {
+            "Code": "SSP",
+            "AgesaPI": "RomePI-SP3 / CastlePeakPI-SP3r3",
+            "FamilyModel": "Family 17h Models 30h-3Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0B0000",
+            "Description": "SSP - Zen2, Rome / Castle Peak (SP3)."
+        },
+        "Oberon": {
+            "Code": "",
+            "AgesaPI": "",
+            "FamilyModel": "Family 17h Model 47h",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "",
+            "Description": "PlayStation 5 APU; 4700S is GPU-disabled variant."
+        },
+        "Renoir": {
+            "Code": "RN",
+            "AgesaPI": "RenoirPI-FP6",
+            "FamilyModel": "Family 17h Models 60h-6Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0C0000",
+            "Description": "RN - Zen2, Ryzen 4000G Mobile / Desktop (FP6 / AM4)."
+        },
+        "Matisse": {
+            "Code": "MTS",
+            "AgesaPI": "ComboAM4PI",
+            "FamilyModel": "Family 17h Models 70h-7Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0B0500",
+            "Description": "MTS - Zen2, Ryzen 3000 Desktop (AM4)."
+        },
+        "Ariel": {
+            "Code": "",
+            "AgesaPI": "",
+            "FamilyModel": "Family 17h Models 84h-87h",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "",
+            "Description": "Xbox Series S APU."
+        },
+        "Arden": {
+            "Code": "",
+            "AgesaPI": "",
+            "FamilyModel": "Family 17h Models 84h-87h",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "",
+            "Description": "Xbox Series X APU; 4800S is GPU-disabled variant."
+        },
+        "VanGogh": {
+            "Code": "VN",
+            "AgesaPI": "VangoghPI-FF3",
+            "FamilyModel": "Family 17h Models 90h-97h",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0C0000",
+            "Description": "VN - Zen2, Steam Deck APU."
+        },
+        "Mero": {
+            "Code": "MR",
+            "AgesaPI": "MeroBDK-FF3",
+            "FamilyModel": "Family 17h Models A0h-AFh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "",
+            "Description": "MR - Van Gogh variant, Chromebook."
+        },
+        "Mendocino": {
+            "Code": "MDN",
+            "AgesaPI": "MendocinoPI-FT6",
+            "FamilyModel": "Family 17h Models A0h-AFh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0900",
+            "Description": "MDN - Zen2, Ryzen 7020 / 7000U (FT6)."
+        },
+        "Genesis Peak": {
+            "Code": "GN",
+            "AgesaPI": "ChagallWSPI / MilanPI",
+            "FamilyModel": "Family 19h Models 00h-0Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0B0D00",
+            "Description": "GN - Zen3, Threadripper 5000 HEDT (SP3)."
+        },
+        "Genoa": {
+            "Code": "RS",
+            "AgesaPI": "GenoaPI-SP5",
+            "FamilyModel": "Family 19h Models 10h-1Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0D0000",
+            "Description": "RS - Zen4, EPYC 9004 server (SP5)."
+        },
+        "Storm Peak": {
+            "Code": "STP",
+            "AgesaPI": "StormPeakPI-SP6 / ComboSP6PI",
+            "FamilyModel": "Family 19h Models 10h-1Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0111",
+            "Description": "STP - Zen4, Threadripper 7000 HEDT (SP6)."
+        },
+        "Vermeer": {
+            "Code": "VMR",
+            "AgesaPI": "ComboAM4v2PI",
+            "FamilyModel": "Family 19h Models 20h-2Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0B0000",
+            "Description": "VMR - Zen3, Ryzen 5000 Desktop (AM4)."
+        },
+        "Chagall": {
+            "Code": "CGL",
+            "AgesaPI": "ChagallWSPI-sWRX4",
+            "FamilyModel": "Family 19h Models 20h-2Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0B0000",
+            "Description": "CGL - Zen3, Threadripper PRO 5000WX (SP3)."
+        },
+        "Badami": {
+            "Code": "BA",
+            "AgesaPI": "TrentoPI-SP3",
+            "FamilyModel": "Family 19h Models 30h-3Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0B0F00",
+            "Description": "BA - Zen3, Milan-X / Trento, 3D V-Cache variant (SP3)."
+        },
+        "Rembrandt": {
+            "Code": "RMB",
+            "AgesaPI": "ComboAM5PI / RembrandtPI-FP7",
+            "FamilyModel": "Family 19h Models 40h-4Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0200",
+            "Description": "RMB - Zen3+, Ryzen 6000 Mobile (FP7 / FP7R2)."
+        },
+        "Cezanne": {
+            "Code": "CZN",
+            "AgesaPI": "ComboAM4PI / CezannePI-FP6",
+            "FamilyModel": "Family 19h Models 50h-5Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0C0140",
+            "Description": "CZN - Zen3, Ryzen 5000G Desktop / Mobile (AM4 / FP6)."
+        },
+        "Raphael": {
+            "Code": "RPL",
+            "AgesaPI": "ComboAM5PI",
+            "FamilyModel": "Family 19h Models 60h-6Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0300",
+            "Description": "RPL - Zen4, Ryzen 7000 Desktop (AM5)."
+        },
+        "Phoenix": {
+            "Code": "PHX",
+            "AgesaPI": "ComboAM5PI / PhoenixPI-FP8-FP7",
+            "FamilyModel": "Family 19h Models 70h-77h",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0400",
+            "Description": "PHX - Zen4, Ryzen 8000G Desktop (AM5) / Ryzen 7040 / 8040 series (FP7 / FP8)."
+        },
+        "Phoenix 2": {
+            "Code": "PHX2",
+            "AgesaPI": "ComboAM5PI / PhoenixPI",
+            "FamilyModel": "Family 19h Models 78h-7Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0B00",
+            "Description": "PHX2 - Zen4, Ryzen 8000G Desktop (AM5)."
+        },
+        "FireFlight 3": {
+            "Code": "FF3",
+            "AgesaPI": "VangoghPI-FF3",
+            "FamilyModel": "Family 19h Models 80h-8Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "",
+            "Description": "FF3 - Zen2 APU."
+        },
+        "MI300C": {
+            "Code": "MI3",
+            "AgesaPI": "Mi300PI-SH5",
+            "FamilyModel": "Family 19h Models 80h-8Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "",
+            "Description": "MI3 - Azure MI300C."
+        },
+        "MI300A": {
+            "Code": "MI3",
+            "AgesaPI": "Mi300PI-SH5",
+            "FamilyModel": "Family 19h Models 90h-9Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0D0600",
+            "Description": "MI3 - Aqua Vanjaram, MI300A."
+        },
+        "Bergamo": {
+            "Code": "BRH",
+            "AgesaPI": "TurinPI-SP5",
+            "FamilyModel": "Family 19h Models A0h-AFh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0E0100",
+            "Description": "BRH - Zen4c, EPYC 97x4 dense compute (SP5)."
+        },
+        "Turin": {
+            "Code": "BRH",
+            "AgesaPI": "TurinPI-SP5",
+            "FamilyModel": "Family 1Ah Models 00h-07h",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0E0000",
+            "Description": "BRH - Zen5, EPYC 9005 server (SP5)."
+        },
+        "Shimada Peak": {
+            "Code": "SHP",
+            "AgesaPI": "ShimadaPeakPI-SP6 / ComboSP6PI",
+            "FamilyModel": "Family 1Ah Models 08h-0Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0E0000",
+            "Description": "SHP - Zen5, Threadripper 9000 HEDT (SP6)."
+        },
+        "Turin Dense": {
+            "Code": "SRN",
+            "AgesaPI": "TurinPI-SP5",
+            "FamilyModel": "Family 1Ah Models 10h-1Fh",
+            "AndMask": "0xFFFF0000",
+            "PSPID": "0xBC0E0000",
+            "Description": "SRN - Zen5c, EPYC dense compute."
+        },
+        "Strix Point": {
+            "Code": "STX",
+            "AgesaPI": "StrixPI-FP8",
+            "FamilyModel": "Family 1Ah Models 20h-2Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0200",
+            "Description": "STX - Zen5 APU, Ryzen AI 300 series (FP8)."
+        },
+        "Strix Point 2": {
+            "Code": "STX2",
+            "AgesaPI": "StrixPI-FP8",
+            "FamilyModel": "Family 1Ah Models 30h-37h",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0200",
+            "Description": "STX2 - Zen5 APU refresh, shares PSPID with STX."
+        },
+        "Strix Point 3": {
+            "Code": "STX3",
+            "AgesaPI": "",
+            "FamilyModel": "Family 1Ah Models 38h-3Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "",
+            "Description": "STX3 - Zen5."
+        },
+        "Granite Ridge": {
+            "Code": "GNR",
+            "AgesaPI": "ComboAM5PI",
+            "FamilyModel": "Family 1Ah Models 40h-4Fh",
+            "AndMask": "0xFFFFFFFF",
+            "PSPID": "0xBC0D0300",
+            "Description": "GNR - Zen5, Ryzen 9000 Desktop (AM5)."
+        },
+        "Weisshorn": {
+            "Code": "WH",
+            "AgesaPI": "",
+            "FamilyModel": "Family 1Ah Models 50h-5Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0F0000",
+            "Description": "WH - Zen6 HEDT / Server."
+        },
+        "KrackanPoint": {
+            "Code": "KRK",
+            "AgesaPI": "StrixPI-FP8",
+            "FamilyModel": "Family 1Ah Models 60h-67h",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0B00",
+            "Description": "KRK - Zen5 APU, value segment."
+        },
+        "Krackan Point 2": {
+            "Code": "KRK2",
+            "AgesaPI": "StrixPI-FP8",
+            "FamilyModel": "Family 1Ah Models 68h-6Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E1000",
+            "Description": "KRK2 - Zen5, Ryzen Desktop variant."
+        },
+        "Strix Halo": {
+            "Code": "STXH",
+            "AgesaPI": "StrixHaloPI-FP11",
+            "FamilyModel": "Family 1Ah Models 70h-7Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0E0900",
+            "Description": "STXH - Zen5 high-end APU, large iGPU (FP11)."
+        },
+        "Venice": {
+            "Code": "",
+            "AgesaPI": "",
+            "FamilyModel": "Family 1Ah Models 90h-9Fh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBF000500",
+            "Description": "Zen6."
+        },
+        "Medusa": {
+            "Code": "MDS",
+            "AgesaPI": "",
+            "FamilyModel": "Family 1Ah Models XXh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBF000600",
+            "Description": "MDS - Zen6 APU."
+        },
+        "Medusa DT": {
+            "Code": "MDSDT",
+            "AgesaPI": "",
+            "FamilyModel": "Family 1Ah Models XXh",
+            "AndMask": "0xFFFFFF00",
+            "PSPID": "0xBC0F0A00",
+            "Description": "MDSDT - Zen6 Desktop."
+        }
+    },
+    "sockets": {
+        "AM4": ["ZP", "RV", "MTS", "VMR", "RN"],
+        "AM5": ["RPL", "GNR", "PHX", "RMB", "STX", "MDS"],
+        "SP3": ["ZP", "SSP", "GN", "BA", "CGL"],
+        "SP4": ["ZP"],
+        "SP5": ["RS", "BRH"],
+        "SP6": ["STP", "SHP"],
+        "FP5": ["RV"],
+        "FP6": ["RN", "CZN"],
+        "FP7": ["RMB", "PHX"],
+        "FP7R2": ["RMB", "PHX"],
+        "FP8": ["PHX", "STX"],
+        "FP11": ["STXH"],
+        "FT5": ["RV2"],
+        "FT6": ["MDN"]
+    },
+    "families": {
+        "FAMILY15H": ["BR"],
+        "FAMILY17H": ["ZP", "RV", "SSP", "MTS", "RN", "VN", "MDN"],
+        "FAMILY19H": ["GN", "RS", "VMR", "CGL", "BA", "RMB", "CZN", "RPL", "PHX", "FF3", "MI3", "BRH"],
+        "FAMILY1AH": ["STX", "STXH", "GNR", "BRH", "SHP", "WH"],
+        "ZEN": ["ZP", "RV"],
+        "ZEN2": ["SSP", "MTS", "RN", "VN", "MDN"],
+        "ZEN3": ["VMR", "CGL", "GN", "BA", "CZN", "RMB"],
+        "ZEN4": ["RS", "STP", "RPL", "PHX", "MI3", "BRH"],
+        "ZEN5": ["STX", "STXH", "GNR", "SHP", "BRH"],
+        "ZEN6": ["MDS", "MDSDT"]
+
+    },
+    "fch_codenames": {
+        "Kern": "(Bristol Ridge)",
+        "Taishan": "ZP (Zeppelin/Summit Ridge)",
+        "Sandstone": "RV (Raven Ridge)",
+        "Huashan": "SSP|MTS|GN|BA|VMR (Rome/Matisse/Genesis Peak)",
+        "Shasta": "RN|CZN (Renoir/Cezanne)",
+        "Shang": "FF3 (FireFlight)",
+        "Keith": "RMB (Rembrandt)",
+        "KeithMdn": "MDN (Mendocino)",
+        "Yuntai": "RPL|GNR (Raphael/Granite Ridge)",
+        "Tacoma": "PHX (Phoenix)",
+        "Huangshan": "STXKRK|STXH (Strix Point/Strix Halo)",
+        "Songshan": "RS|STP (Genoa/Storm Peak)",
+        "Qiantang": "MI3 (MI300)",
+        "Kunlun": "BRH|SHP (Bergamo/Turin/Shimada Peak)",
+        "Bixby": "BXB (A discrete version of the Matisse IO Die)"
+    },
+    "promontory_codenames": {
+        "firmware_signatures": {
+            "3306A": {
+                "name": "Prom",
+                "description": "Promontory (X370/B350/A320)",
+                "fw_label": "3306A_FW",
+                "rcfg_label": "3306A_RCFG",
+                "tail_skip": 0,
+                "max_size": 131072
+            },
+            "3306B": {
+                "name": "PromLP",
+                "description": "Low Power Promontory (X470/B450)",
+                "fw_label": "3306B_FW",
+                "rcfg_label": "3306B_RCFG",
+                "tail_skip": 0,
+                "max_size": 131072
+            },
+            "3308A": {
+                "name": "Prom19",
+                "description": "Promontory 19 / Promontory Plus (B550/A520/A620A)",
+                "fw_label": "3308A_FW",
+                "rcfg_label": "3308A_RCFG",
+                "tail_skip": 12,
+                "max_size": 131072
+            },
+            "3328A": {
+                "name": "Prom21",
+                "description": "Promontory 21 (X870/B850/X670/B650/A620)",
+                "fw_label": "3328A_FW",
+                "rcfg_label": "3328A_RCFG",
+                "tail_skip": 268,
+                "max_size": 131072
+            }
+        }
+    }
+}

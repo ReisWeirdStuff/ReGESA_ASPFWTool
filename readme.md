@@ -1,19 +1,18 @@
 # ReGESA_ASPFWTool
 
 > [!NOTE]
-> This program is still in the pre-Alpha development stage.\
-> Before all unit tests, simulation, physical tests are completed and the first Alpha version is released,\
-> This repository will only contain GUI preview screenshots and this readme.md document.
+> This program is now in **Pre-Alpha** and released for testing, GLHF.
+> 
+> The current code quality is poor, it's a disaster.\
+> But basic functionality like entry parsing, simple insert/replace/remove/zlib/lzma works
 >
-> Due to the complexity of ASP and UEFI, even with multiple automated test platforms equipped with EM100 SPI emulator,\
-> the entire process is still very time-consuming.\
-> The first alpha version is expected to be released around Q1, 2026.
+> Please report any bugs or issues you encounter.\
+> Please provide the firmware image file and the steps to reproduce the bug so that I can trace and patch it.
+>
 
-
-> **ASPFWTool** (ASP Firmware Tool) is a part of the **ReGESA** project.\
-> Aims "legacy" firmware security research (as the new architecture "openSIL" will replace "AGESA", or at least a part of it)\
-> and to add "new" processor(AM4, Zen3) support to old (Raven) OEM PCs\
-> All the following content is from an unreleased ASPFWTool, pre-alpha version.
+ **ASPFWTool** (ASP Firmware Tool)\
+ Aims "legacy" firmware security research (as the new architecture "openSIL" will replace "AGESA", or at least a part of it)\
+ and to add "new" processor (AM4, Zen3) support to old (Raven) OEM PCs.
 
 
 ## Overview
@@ -179,7 +178,9 @@ The "ASP" (AMD Security Processor), formerly known as the "PSP" (Platform Securi
 ---
 
 ### Prerequisites
-- Python 3.10+, Windows or Linux environment with GUI support
+- Python 3.10+, 
+- PySide6, 
+- Environment with GUI support,
 - Dependencies listed in `requirements.txt`
 
 ### Build / Run

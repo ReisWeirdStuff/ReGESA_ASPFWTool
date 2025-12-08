@@ -1,0 +1,83 @@
+{
+    "_metadata": {
+        "description": "Soft Fuse Chain bit field definitions",
+        "version": "Pre-Alpha 25.0.0.0"
+    },
+    "fields": [
+        {
+            "bit": 0,
+            "zero_label": "Secure Debug Unlock disabled",
+            "one_label": "Secure Debug Unlock enabled"
+        },
+        {
+            "bit": 2,
+            "zero_label": "Early Secure Debug Unlock disabled",
+            "one_label": "Early Secure Debug Unlock enabled"
+        },
+        {
+            "bit": 3,
+            "zero_label": "Token Unlock not passed",
+            "one_label": "Token Unlock passed"
+        },
+        {
+            "bit": 4,
+            "zero_label": "Security policy skipped on unsecure ASIC",
+            "one_label": "Security policy forced on unsecure ASIC"
+        },
+        {
+            "bit": 5,
+            "zero_label": "Diag BL not requested",
+            "one_label": "Diag BL requested"
+        },
+        {
+            "bit": 6,
+            "zero_label": "PSP debug prints enabled",
+            "one_label": "PSP debug prints disabled"
+        },
+        {
+            "bit": 14,
+            "zero_label": "SPI decode range 0x000000-0xFFFFFF mapped to FF000000-FFFFFFFF",
+            "one_label": "SPI decode range 0x1000000-0x1FFFFFF mapped to FF000000-FFFFFFFF"
+        },
+        {
+            "bit": 15,
+            "zero_label": "Debug postcode decode to SoC UART / LPC",
+            "one_label": "Debug postcode decode to I/O port 0x3F8 / eSPI"
+        },
+        {
+            "bit": 28,
+            "zero_label": "MP0 DPM disabled",
+            "one_label": "MP0 DPM enabled"
+        },
+        {
+            "bit": 29,
+            "zero_label": "Load MP2 FW normally",
+            "one_label": "Skip MP2 FW loading"
+        },
+        {
+            "bit": 30,
+            "zero_label": "Postcode 1-byte output disabled",
+            "one_label": "Postcode 1-byte output enabled"
+        },
+        {
+            "bit": 31,
+            "zero_label": "Legacy recovery support disabled",
+            "one_label": "Legacy recovery support enabled"
+        },
+        {
+            "bit": 32,
+            "zero_label": "FIPS certification mode OFF",
+            "one_label": "FIPS certification mode ON"
+        },
+        {
+            "bit": 33,
+            "zero_label": "Force MPM disabled on disable SKU in early program phase",
+            "one_label": "Force MPM enabled on disable SKU in early program phase"
+        },
+        {
+            "bit": 34,
+            "zero_label": "SPIROM-CONFIG feature enabled",
+            "one_label": "SPIROM-CONFIG feature disabled"
+        }
+    ]
+}

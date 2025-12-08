@@ -1,0 +1,23 @@
+{
+    "version": "Pre-Alpha 25.0.0.0",
+    "build_date": "2025-12-08",
+    "release_notes": [
+        "Initial release of ASPFWTool",
+        "Version numbering format: <state> <Year>.<Major>.<Minor>.<Patch>"
+    ],
+    "changelog": {
+        "Pre-Alpha 25.0.0.0": {
+            "date": "2025-12-08",
+            "changes": [
+                "Initial Pre-Alpha release",
+                "Release of ASPFWTool",
+                "Version numbering format: <state> <Year>.<Major>.<Minor>.<Patch>"
+            ]
+        }
+    },
+    "authors": [
+        "ReisWeirdStuff"
+    ],
+    "repository": "https://github.com/ReisWeirdStuff/ReGESA_ASPFWTool",
+    "license": "GPLv3"
+}

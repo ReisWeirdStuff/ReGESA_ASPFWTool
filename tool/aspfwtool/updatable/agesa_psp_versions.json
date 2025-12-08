@@ -1,0 +1,8 @@
+{
+  "metadata": {
+    "version": "Pre-Alpha 25.0.0.0",
+    "description": "AGESA PSP Image Type Entry Version <-> Hash Map"
+  },
+  "psp_entries": {},
+  "bios_entries": {}
+}

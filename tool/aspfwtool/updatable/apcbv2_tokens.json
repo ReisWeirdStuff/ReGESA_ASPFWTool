@@ -1,0 +1,1787 @@
+{
+    "metadata": {
+        "version": "Pre-Alpha 25.0.0.0",
+        "description": "APCB V2 Token Definitions",
+        "format": "V2"
+    },
+    "config_tokens": {
+        "_description": "APCB_PARAM_CONFIG_TOKEN enum (TypeId 0x60)",
+        "psp": {
+            "_range": "0x0000-0x00FF",
+            "_description": "PSP Configuration",
+            "0x0000": {
+                "name": "CONFIG_PSP_BEGIN",
+                "brief": "Start PSP config block",
+                "details": ""
+            },
+            "0x0001": {
+                "name": "CONFIG_PSP_END",
+                "brief": "End PSP config block",
+                "details": ""
+            }
+        },
+        "ccx": {
+            "_range": "0x0100-0x02FF",
+            "_description": "CCX/CPU Configuration",
+            "0x0100": {
+                "name": "CONFIG_CCX_BEGIN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0101": {
+                "name": "CONFIG_CCX_MIN_SEV_ASID",
+                "brief": "",
+                "details": ""
+            },
+            "0x0102": {
+                "name": "CONFIG_CCX_END",
+                "brief": "",
+                "details": ""
+            }
+        },
+        "df": {
+            "_range": "0x0300-0x06FF",
+            "_description": "Data Fabric Configuration",
+            "0x0300": {
+                "name": "CONFIG_DF_BEGIN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0301": {
+                "name": "CONFIG_DF_GMI_ENCRYPT",
+                "brief": "",
+                "details": ""
+            },
+            "0x0302": {
+                "name": "CONFIG_DF_XGMI_ENCRYPT",
+                "brief": "",
+                "details": ""
+            },
+            "0x0303": {
+                "name": "CONFIG_DF_SAVE_RESTORE_MEM_ENCRYPT",
+                "brief": "",
+                "details": ""
+            },
+            "0x0304": {
+                "name": "CONFIG_DF_SYS_STORAGE_AT_TOP_OF_MEM",
+                "brief": "",
+                "details": ""
+            },
+            "0x0305": {
+                "name": "CONFIG_DF_PROBE_FILTER_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0306": {
+                "name": "CONFIG_DF_BOTTOMIO",
+                "brief": "",
+                "details": ""
+            },
+            "0x0307": {
+                "name": "CONFIG_DF_MEM_INTERLEAVING",
+                "brief": "",
+                "details": ""
+            },
+            "0x0308": {
+                "name": "CONFIG_DF_DRAM_INTERLEAVE_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0309": {
+                "name": "CONFIG_DF_ENABLE_CHAN_INTLV_HASH",
+                "brief": "",
+                "details": ""
+            },
+            "0x030A": {
+                "name": "CONFIG_DF_PCI_MMIO_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x030B": {
+                "name": "CONFIG_DF_CAKE_CRC_THRESH_PERF_BOUNDS",
+                "brief": "",
+                "details": ""
+            },
+            "0x030C": {
+                "name": "CONFIG_DF_MEM_CLEAR",
+                "brief": "",
+                "details": ""
+            },
+            "0x030D": {
+                "name": "CONFIG_DF_END",
+                "brief": "",
+                "details": ""
+            },
+            "0x030E": {
+                "name": "DF_GMI2_REPLAY",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_DF_GMI2_REPLAY"
+            }
+        },
+        "mem": {
+            "_range": "0x0700-0x17FF",
+            "_description": "Memory Configuration",
+            "0x0700": {
+                "name": "CONFIG_MEM_BEGIN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0701": {
+                "name": "CONFIG_LIMITMEMORYTOBELOW1TB",
+                "brief": "",
+                "details": ""
+            },
+            "0x0702": {
+                "name": "CONFIG_USERTIMINGMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0703": {
+                "name": "CONFIG_MEMCLOCKVALUE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0704": {
+                "name": "CONFIG_ENABLEBANKINTLV",
+                "brief": "",
+                "details": ""
+            },
+            "0x0705": {
+                "name": "CONFIG_ENABLEECCFEATURE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0706": {
+                "name": "CONFIG_ENABLEPOWERDOWN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0707": {
+                "name": "CONFIG_ENABLEPARITY",
+                "brief": "",
+                "details": ""
+            },
+            "0x0708": {
+                "name": "CONFIG_ENABLEBANKSWIZZLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0709": {
+                "name": "CONFIG_ENABLEMEMCLR",
+                "brief": "",
+                "details": ""
+            },
+            "0x070A": {
+                "name": "CONFIG_UMAMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x070B": {
+                "name": "CONFIG_UMASIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x070C": {
+                "name": "CONFIG_MEMRESTORECTL",
+                "brief": "",
+                "details": ""
+            },
+            "0x070D": {
+                "name": "CONFIG_FORCETRAINMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x070E": {
+                "name": "CONFIG_DIMMTYPEUSEDINMIXEDCONFIG",
+                "brief": "",
+                "details": ""
+            },
+            "0x070F": {
+                "name": "CONFIG_DRAMDOUBLEREFRESHRATE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0710": {
+                "name": "CONFIG_PMUTRAINMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0711": {
+                "name": "CONFIG_ECCREDIRECTION",
+                "brief": "",
+                "details": ""
+            },
+            "0x0712": {
+                "name": "CONFIG_ECCSYNCFLOOD",
+                "brief": "",
+                "details": ""
+            },
+            "0x0713": {
+                "name": "CONFIG_ECCSYMBOLSIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0714": {
+                "name": "CONFIG_DQSTRAININGCONTROL",
+                "brief": "",
+                "details": ""
+            },
+            "0x0715": {
+                "name": "CONFIG_UMAABOVE4G",
+                "brief": "",
+                "details": ""
+            },
+            "0x0716": {
+                "name": "CONFIG_UMAALIGNMENT",
+                "brief": "",
+                "details": ""
+            },
+            "0x0717": {
+                "name": "CONFIG_MEMORYALLCLOCKSON",
+                "brief": "",
+                "details": ""
+            },
+            "0x0718": {
+                "name": "CONFIG_MEMORYBUSFREQUENCYLIMIT",
+                "brief": "",
+                "details": ""
+            },
+            "0x0719": {
+                "name": "CONFIG_POWERDOWNMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x071A": {
+                "name": "CONFIG_IGNORESPDCHECKSUM",
+                "brief": "",
+                "details": ""
+            },
+            "0x071B": {
+                "name": "CONFIG_MEMORYQUADRANKCAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x071C": {
+                "name": "CONFIG_MEMORYRDIMMCAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x071D": {
+                "name": "CONFIG_MEMORYLRDIMMCAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x071E": {
+                "name": "CONFIG_MEMORYUDIMMCAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x071F": {
+                "name": "CONFIG_MEMORYSODIMMCAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0720": {
+                "name": "CONFIG_DRAMDOUBLEREFRESHRATEEN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0721": {
+                "name": "CONFIG_DIMMTYPEDDDR4CAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0722": {
+                "name": "CONFIG_DIMMTYPEDDDR3CAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0723": {
+                "name": "CONFIG_DIMMTYPELPDDDR3CAPABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0724": {
+                "name": "CONFIG_ENABLEBANKGROUPSWAP",
+                "brief": "",
+                "details": ""
+            },
+            "0x0725": {
+                "name": "CONFIG_ODTSCMDTHROTEN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0726": {
+                "name": "CONFIG_SWCMDTHROTEN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0727": {
+                "name": "CONFIG_FORCEPWRDOWNTHROTEN",
+                "brief": "",
+                "details": ""
+            },
+            "0x0728": {
+                "name": "CONFIG_ODTSCMDTHROTCYC",
+                "brief": "",
+                "details": ""
+            },
+            "0x0729": {
+                "name": "CONFIG_SWCMDTHROTCYC",
+                "brief": "",
+                "details": ""
+            },
+            "0x072A": {
+                "name": "CONFIG_DIMMSENSORCONF",
+                "brief": "",
+                "details": ""
+            },
+            "0x072B": {
+                "name": "CONFIG_DIMMSENSORUPPER",
+                "brief": "",
+                "details": ""
+            },
+            "0x072C": {
+                "name": "CONFIG_DIMMSENSORLOWER",
+                "brief": "",
+                "details": ""
+            },
+            "0x072D": {
+                "name": "CONFIG_DIMMSENSORCRITICAL",
+                "brief": "",
+                "details": ""
+            },
+            "0x072E": {
+                "name": "CONFIG_DIMMSENSORRESOLUTION",
+                "brief": "",
+                "details": ""
+            },
+            "0x072F": {
+                "name": "CONFIG_AUTOREFFINEGRANMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0730": {
+                "name": "CONFIG_ENABLEMEMPSTATE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0731": {
+                "name": "CONFIG_SOLDERDOWNDRAM",
+                "brief": "",
+                "details": ""
+            },
+            "0x0732": {
+                "name": "CONFIG_DDRROUTEBALANCEDTEE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0733": {
+                "name": "CONFIG_MEM_MBIST_TEST_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0734": {
+                "name": "CONFIG_MEM_MBIST_SUBTEST_TYPE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0735": {
+                "name": "CONFIG_MEM_MBIST_AGGRESOR_ON",
+                "brief": "",
+                "details": ""
+            },
+            "0x0736": {
+                "name": "CONFIG_MEM_MBIST_HALT_ON_ERROR",
+                "brief": "",
+                "details": ""
+            },
+            "0x0737": {
+                "name": "CONFIG_MEM_TSME_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x0738": {
+                "name": "CONFIG_MEM_PS_ERROR_HANDLING",
+                "brief": "",
+                "details": ""
+            },
+            "0x0739": {
+                "name": "CONFIG_MEM_TEMP_CONTROLLED_REFRESH_EN",
+                "brief": "",
+                "details": ""
+            },
+            "0x073A": {
+                "name": "CONFIG_MEMRESTOREVALIDDAYS",
+                "brief": "",
+                "details": ""
+            },
+            "0x073B": {
+                "name": "CONFIG_DDR_ROUTE_BALANCED_TEE",
+                "brief": "",
+                "details": ""
+            },
+            "0x073C": {
+                "name": "CONFIG_MEM_FORCE_DATA_MASK_DISABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x073D": {
+                "name": "CONFIG_MEM_CPU_VREF_RANGE",
+                "brief": "",
+                "details": ""
+            },
+            "0x073E": {
+                "name": "CONFIG_MEM_DRAM_VREF_RANGE",
+                "brief": "",
+                "details": ""
+            },
+            "0x073F": {
+                "name": "CONFIG_MEM_MBIST_PER_BIT_SLAVE_DIE_REPORT",
+                "brief": "",
+                "details": ""
+            },
+            "0x0740": {
+                "name": "CONFIG_PMU_TRAIN_ERROR_RECOVERY",
+                "brief": "",
+                "details": ""
+            },
+            "0x0741": {
+                "name": "CONFIG_MEM_END",
+                "brief": "",
+                "details": ""
+            },
+            "0x0742": {
+                "name": "MEM_MBIST_AGGRESOR_ON",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_MBIST_AGGRESOR_ON"
+            },
+            "0x0743": {
+                "name": "MEM_MBIST_HALT_ON_ERROR",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_MBIST_HALT_ON_ERROR"
+            },
+            "0x0744": {
+                "name": "MEM_CPU_VREF_RANGE",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_CPU_VREF_RANGE"
+            },
+            "0x0745": {
+                "name": "MEM_DRAM_VREF_RANGE",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_DRAM_VREF_RANGE"
+            },
+            "0x0746": {
+                "name": "MEM_TSME_ENABLE",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_TSME_ENABLE"
+            },
+            "0x0747": {
+                "name": "MEM_NVDIMM_POWER_SOURCE",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_NVDIMM_POWER_SOURCE"
+            },
+            "0x0748": {
+                "name": "MEM_DATA_POISON",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_DATA_POISON"
+            },
+            "0x0749": {
+                "name": "MEM_DATA_SCRAMBLE",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_DATA_SCRAMBLE"
+            },
+            "0x074A": {
+                "name": "MEM_PS_ERROR_HANDLING",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_PS_ERROR_HANDLING"
+            },
+            "0x074B": {
+                "name": "MEM_TEMP_CONTROLLED_REFRESH_EN",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_TEMP_CONTROLLED_REFRESH_EN"
+            },
+            "0x074C": {
+                "name": "MEM_MBIST_PER_BIT_SLAVE_DIE_REPORT",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MEM_MBIST_PER_BIT_SLAVE_DIE_REPORT"
+            },
+            "0x074D": {
+                "name": "ENABLEBANKGROUPSWAPALT",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_ENABLEBANKGROUPSWAPALT"
+            },
+            "0x074E": {
+                "name": "MAX_FREQ_APCB_INSTANCE_ID",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_MAX_FREQ_APCB_INSTANCE_ID"
+            },
+            "0x074F": {
+                "name": "UECC_RETRY_DDR4",
+                "brief": "CONFIG token (enum)",
+                "details": "From: APCB_TOKEN_CONFIG_UECC_RETRY_DDR4"
+            }
+        },
+        "gnb": {
+            "_range": "0x1800-0x1BFF",
+            "_description": "GNB/PCIe Configuration",
+            "0x1800": {
+                "name": "CONFIG_GNB_BEGIN",
+                "brief": "",
+                "details": ""
+            },
+            "0x1801": {
+                "name": "CONFIG_BMC_SOCKET_NUMBER",
+                "brief": "",
+                "details": ""
+            },
+            "0x1802": {
+                "name": "CONFIG_BMC_START_LANE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1803": {
+                "name": "CONFIG_BMC_END_LANE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1804": {
+                "name": "CONFIG_BMC_DEVICE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1805": {
+                "name": "CONFIG_BMC_FUNCTION",
+                "brief": "",
+                "details": ""
+            },
+            "0x1806": {
+                "name": "CONFIG_PCIE_RESET_CONTROL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1807": {
+                "name": "CONFIG_PCIE_RESET_GPIO_PIN",
+                "brief": "",
+                "details": ""
+            },
+            "0x1808": {
+                "name": "CONFIG_GNB_END",
+                "brief": "",
+                "details": ""
+            }
+        },
+        "fch": {
+            "_range": "0x1C00-0x1FFF",
+            "_description": "FCH Configuration",
+            "0x1C00": {
+                "name": "CONFIG_FCH_BEGIN",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C01": {
+                "name": "CONFIG_FCH_CONSOLE_OUT_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C02": {
+                "name": "CONFIG_FCH_CONSOLE_OUT_SERIAL_PORT",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C03": {
+                "name": "CONFIG_FCH_ASSERT_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C04": {
+                "name": "CONFIG_FCH_TURTLE_BOOT_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C05": {
+                "name": "CONFIG_FCH_ELEVATE_SMBUS_CLOCK",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C06": {
+                "name": "CONFIG_FCH_UART_BAUD_RATE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C07": {
+                "name": "CONFIG_FCH_ABL_DEBUG_PRINT_SERIAL_PORT_DETECT_EN",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C08": {
+                "name": "CONFIG_FCH_ESPI_ABL_INIT_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C09": {
+                "name": "CONFIG_FCH_ESPI_IO80_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C0A": {
+                "name": "CONFIG_FCH_ESPI_KBC6064_ENABLE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C0B": {
+                "name": "CONFIG_FCH_ESPI_CLOCK",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C0C": {
+                "name": "CONFIG_FCH_ESPI_IOMODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C0D": {
+                "name": "CONFIG_FCH_ESPI_ALERT_MODE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C0E": {
+                "name": "CONFIG_FCH_ESPI_IORANGE0_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C0F": {
+                "name": "CONFIG_FCH_ESPI_IORANGE1_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C10": {
+                "name": "CONFIG_FCH_ESPI_IORANGE2_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C11": {
+                "name": "CONFIG_FCH_ESPI_IORANGE3_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C12": {
+                "name": "CONFIG_FCH_ESPI_IORANGE0_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C13": {
+                "name": "CONFIG_FCH_ESPI_IORANGE1_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C14": {
+                "name": "CONFIG_FCH_ESPI_IORANGE2_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C15": {
+                "name": "CONFIG_FCH_ESPI_IORANGE3_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C16": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE0_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C17": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE1_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C18": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE2_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C19": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE3_SIZE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C1A": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE0_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C1B": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE1_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C1C": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE2_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C1D": {
+                "name": "CONFIG_FCH_ESPI_MMIORANGE3_BASE",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C1E": {
+                "name": "CONFIG_FCH_I2C_0_RX_SEL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C1F": {
+                "name": "CONFIG_FCH_I2C_1_RX_SEL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C20": {
+                "name": "CONFIG_FCH_I2C_2_RX_SEL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C21": {
+                "name": "CONFIG_FCH_I2C_3_RX_SEL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C22": {
+                "name": "CONFIG_FCH_I2C_4_RX_SEL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C23": {
+                "name": "CONFIG_FCH_I2C_5_RX_SEL",
+                "brief": "",
+                "details": ""
+            },
+            "0x1C24": {
+                "name": "CONFIG_FCH_END",
+                "brief": "",
+                "details": ""
+            },
+            "0x1FFF": {
+                "name": "CONFIG_LIMIT",
+                "brief": "",
+                "details": ""
+            }
+        }
+    },
+    "cbs_cmn_tokens": {
+        "_description": "CBS Common tokens (TypeId 0x68)",
+        "_range": "0x0000-0x1FFF"
+    },
+    "cbs_dbg_tokens": {
+        "_description": "CBS Debug tokens (TypeId 0x69)",
+        "_range": "0x0000-0x1FFF",
+        "0x0002": {
+            "name": "CBS_DF_DBG_IO_MSTR_REQ_ORDERING",
+            "brief": "",
+            "details": ""
+        },
+        "0x0003": {
+            "name": "CBS_DF_DBG_MEM_CANCEL_DIS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0004": {
+            "name": "CBS_DF_DBG_MIG_PRB_DIS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0005": {
+            "name": "CBS_DF_DBG_STOP_ON_SPF_ERROR",
+            "brief": "",
+            "details": ""
+        },
+        "0x0006": {
+            "name": "CBS_DF_DBG_TCDX_BYPASS_DIS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0007": {
+            "name": "CBS_DF_DBG_F1F_FETCH_PRB_RMT",
+            "brief": "",
+            "details": ""
+        },
+        "0x0008": {
+            "name": "CBS_DF_DBG_F1F_FETCH_PRB_LCL",
+            "brief": "",
+            "details": ""
+        },
+        "0x0009": {
+            "name": "CBS_DF_DBG_F1F_FETCH_PRB_TARGET",
+            "brief": "",
+            "details": ""
+        },
+        "0x000A": {
+            "name": "CBS_DF_DBG_SPF_WAY_DIS",
+            "brief": "",
+            "details": ""
+        },
+        "0x000B": {
+            "name": "CBS_DF_DBG_IO_REQ_BUS_LOCK_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x000C": {
+            "name": "CBS_DF_DBG_IOM_PERF_MON_PRB_RSP",
+            "brief": "",
+            "details": ""
+        },
+        "0x000D": {
+            "name": "CBS_DF_DBG_IOM_PERF_MON_TGT_SEL",
+            "brief": "",
+            "details": ""
+        },
+        "0x000E": {
+            "name": "CBS_DF_DBG_WDT_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x000F": {
+            "name": "CBS_DF_DBG_CAKE_REQ_ADDR_COMPRESSION",
+            "brief": "",
+            "details": ""
+        },
+        "0x0010": {
+            "name": "CBS_DF_DBG_CAKE_DATA_COMPRESSION",
+            "brief": "",
+            "details": ""
+        },
+        "0x0011": {
+            "name": "CBS_DF_DBG_CAKE_RSP_CMD_PACKING",
+            "brief": "",
+            "details": ""
+        },
+        "0x0012": {
+            "name": "CBS_DF_DBG_CAKE_PRB_COMBINING",
+            "brief": "",
+            "details": ""
+        },
+        "0x0013": {
+            "name": "CBS_DF_DBG_CAKE_IO_ADDR_COMP_BIT",
+            "brief": "",
+            "details": ""
+        },
+        "0x0014": {
+            "name": "CBS_DF_DBG_IO_BUS_LOCK_INV_DIS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0015": {
+            "name": "CBS_DF_DBG_PIE_PRQ_BCST_LIMIT",
+            "brief": "",
+            "details": ""
+        },
+        "0x0016": {
+            "name": "CBS_DF_DBG_LMT_MAX_IO_REQ_MASTER",
+            "brief": "",
+            "details": ""
+        },
+        "0x0017": {
+            "name": "CBS_DF_DBG_LMT_MAX_IO_REQ_LIMIT",
+            "brief": "",
+            "details": ""
+        },
+        "0x0018": {
+            "name": "CBS_DF_DBG_IOS_RSP_BYPASS_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x0019": {
+            "name": "CBS_DF_DBG_CAKE_BYPASS_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x001A": {
+            "name": "CBS_DF_DBG_CS_BYPASS_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x001B": {
+            "name": "CBS_DF_DBG_TGT_START_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x001C": {
+            "name": "CBS_DF_DBG_LINK_ERR_INJ",
+            "brief": "",
+            "details": ""
+        },
+        "0x001D": {
+            "name": "CBS_DF_DBG_VC8_TRACING_TOK_ALLOC",
+            "brief": "",
+            "details": ""
+        },
+        "0x001E": {
+            "name": "CBS_DF_DBG_VC8_TRACING_REQ_CS",
+            "brief": "",
+            "details": ""
+        },
+        "0x001F": {
+            "name": "CBS_DF_DBG_VC8_TRACING_REQ_IOMS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0020": {
+            "name": "CBS_DF_DBG_VC8_TRACING_CSQ",
+            "brief": "",
+            "details": ""
+        },
+        "0x0021": {
+            "name": "CBS_DF_DBG_VC8_TRACING_RSP_IOMS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0022": {
+            "name": "CBS_DF_DBG_VC8_TRACING_RSP_TCDX",
+            "brief": "",
+            "details": ""
+        },
+        "0x0023": {
+            "name": "CBS_DF_DBG_REDUCE_CREDITS_REQ",
+            "brief": "",
+            "details": ""
+        },
+        "0x0024": {
+            "name": "CBS_DF_DBG_REDUCE_CREDITS_PRB",
+            "brief": "",
+            "details": ""
+        },
+        "0x0025": {
+            "name": "CBS_DF_DBG_REDUCE_CREDITS_RSP",
+            "brief": "",
+            "details": ""
+        },
+        "0x0026": {
+            "name": "CBS_DF_DBG_LOAD_STEP_CTRL_DIS",
+            "brief": "",
+            "details": ""
+        },
+        "0x0027": {
+            "name": "CBS_DBG_MEM_TIMING_ENFORCE_FREQ_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0028": {
+            "name": "CBS_DBG_MEM_TIMING_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0029": {
+            "name": "CBS_DBG_MEM_SPEED_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x002A": {
+            "name": "CBS_DBG_MEM_TIMING_UCLK_DIV1_M0_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x002B": {
+            "name": "CBS_DBG_MEM_TIMING_UCLK_DIV1_M1_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x002C": {
+            "name": "CBS_DBG_MEM_TIMING_UCLK_DIV1_M2_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x002D": {
+            "name": "CBS_DBG_MEM_TIMING_UCLK_DIV1_M3_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x002E": {
+            "name": "CBS_DBG_MEM_TIMING_TRC_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x002F": {
+            "name": "CBS_DBG_MEM_TIMING_TRC_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0030": {
+            "name": "CBS_DBG_MEM_TIMING_TREF_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0031": {
+            "name": "CBS_DBG_MEM_TIMING_TREF_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0032": {
+            "name": "CBS_DBG_MEM_TIMING_TRWT_WB_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0033": {
+            "name": "CBS_DBG_MEM_TIMING_TRFC0_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0034": {
+            "name": "CBS_DBG_MEM_TIMING_TRFC0_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0035": {
+            "name": "CBS_DBG_MEM_TIMING_TRFC1_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0036": {
+            "name": "CBS_DBG_MEM_TIMING_TRFC1_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0037": {
+            "name": "CBS_DBG_MEM_TIMING_TCKSRX_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0038": {
+            "name": "CBS_DBG_MEM_TIMING_TCKSRX_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0039": {
+            "name": "CBS_DBG_MEM_TIMING_TCKSRE_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x003A": {
+            "name": "CBS_DBG_MEM_TIMING_TCKSRE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x003B": {
+            "name": "CBS_DBG_MEM_TIMING_TPD_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x003C": {
+            "name": "CBS_DBG_MEM_TIMING_TPD_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x003D": {
+            "name": "CBS_DBG_MEM_CTRLLER_ADDR_CMD_TRI_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x003E": {
+            "name": "CBS_DBG_MEM_CTRLLER_ON_DIMM_TEMP_SENSOR_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x003F": {
+            "name": "CBS_DBG_MEM_CTRLLER_CMD_THROTTLE_MODE_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0040": {
+            "name": "CBS_DBG_MEM_CTRLLER_CMD_THROTTLE_MODE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0041": {
+            "name": "CBS_DBG_MEM_CTRLLER_WR_CRC_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0042": {
+            "name": "CBS_DBG_MEM_HW_HISTORY_MECH_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0043": {
+            "name": "CBS_DBG_MEM_DRAM_PARITY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0044": {
+            "name": "CBS_DBG_MEM_RCD_PARITY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0045": {
+            "name": "CBS_DBG_MEM_DBI_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0046": {
+            "name": "CBS_DBG_MEM_ADDR_TWEAK_EN_CTRL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0047": {
+            "name": "CBS_DBG_MEM_ADDR_TWEAK_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0048": {
+            "name": "CBS_DBG_MEM_DATA_ENCRYPTION_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0049": {
+            "name": "CBS_DBG_MEM_FORCE_ENCRYPTION_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x004A": {
+            "name": "CBS_DBG_MEM_FINE_GRAN_REF_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x004B": {
+            "name": "CBS_DBG_MEM_CTRLLER_PWR_DN_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x004C": {
+            "name": "CBS_DBG_MEM_CTRLLER_PWR_DN_MO_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x004D": {
+            "name": "CBS_DBG_MEM_CTRLLER_PD_DLY_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x004E": {
+            "name": "CBS_DBG_MEM_CTRLLER_PD_DLY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x004F": {
+            "name": "CBS_DBG_MEM_CTRLLER_AGGRESSIVE_PWR_DOWN_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0050": {
+            "name": "CBS_DBG_MEM_CTRLLER_AGGRE_PD_DLY_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0051": {
+            "name": "CBS_DBG_MEM_CTRLLER_AGGRE_PD_DLY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0052": {
+            "name": "CBS_DBG_MEM_CTRLLER_PHY_POWER_SAVING_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0053": {
+            "name": "CBS_DBG_MEM_CTRLLER_PD_PHY_POWER_SAVE_DIS_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0054": {
+            "name": "CBS_DBG_MEM_CTRLLER_PHY_RECEIVER_POWER_MODE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0055": {
+            "name": "CBS_DBG_MEM_CTRLLER_MEM_PWR_POLICY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0056": {
+            "name": "CBS_DBG_MEM_CTRLLER_ALL_MEM_CLKS_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0057": {
+            "name": "CBS_DBG_MEM_CTRLLER_ALL_CKE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0058": {
+            "name": "CBS_DBG_MEM_CTRLLER_ALL_CS_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0059": {
+            "name": "CBS_DBG_MEM_DATA_POISONING_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x005A": {
+            "name": "CBS_DBG_MEM_ADDR_CMD_PARITY_RETRY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x005B": {
+            "name": "CBS_DBG_MEM_ADDR_CMD_PARITY_ERROR_MAX_REPLAY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x005C": {
+            "name": "CBS_DBG_MEM_WRITE_CRC_RETRY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x005D": {
+            "name": "CBS_DBG_MEM_WRITE_CRC_ERROR_MAX_REPLAY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x005E": {
+            "name": "CBS_DBG_MEM_INJECT_TX_CMD_PARITY_ERRORS_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x005F": {
+            "name": "CBS_DBG_MEM_CTRLLER_DRAM_ECC_SYMBOL_SIZE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0060": {
+            "name": "CBS_DBG_MEM_CTRLLER_DRAM_ECC_EN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0061": {
+            "name": "CBS_DBG_MEM_DATA_BUS_CONFIG_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0062": {
+            "name": "CBS_DBG_MEM_CTRLLER_DATA_DRV_STR_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0063": {
+            "name": "CBS_DBG_MEM_TIMING_A_RD_PTR_MP0_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0064": {
+            "name": "CBS_DBG_MEM_TIMING_A_RD_PTR_MP0_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0065": {
+            "name": "CBS_DBG_MEM_TIMING_A_RD_PTR_MP1_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0066": {
+            "name": "CBS_DBG_MEM_TIMING_A_RD_PTR_MP1_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0067": {
+            "name": "CBS_DBG_MEM_DFI_MRL_MARGIN_CTL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0068": {
+            "name": "CBS_DBG_MEM_DFI_MRL_MARGIN_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0069": {
+            "name": "CBS_DBG_MEM_PER_RANK_TIMING_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x006A": {
+            "name": "CBS_DBG_MEM_CTRLLER_PMU_TRAIN_MODE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x006B": {
+            "name": "CBS_DBG_MEM_CTRLLER_MR6_VREF_DQ_CTRL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x006C": {
+            "name": "CBS_DBG_MEM_CTRLLER_MR6_VREF_DQ_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x006D": {
+            "name": "CBS_DBG_MEM_VREF_RANGE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x006E": {
+            "name": "CBS_DBG_CLDO_E12_GA",
+            "brief": "",
+            "details": ""
+        },
+        "0x006F": {
+            "name": "CBS_DBG_CLDO_DDR",
+            "brief": "",
+            "details": ""
+        },
+        "0x0070": {
+            "name": "CBS_DBG_CLDO_WAFL",
+            "brief": "",
+            "details": ""
+        },
+        "0x0071": {
+            "name": "CBS_DBG_CLDO_E12_GB",
+            "brief": "",
+            "details": ""
+        },
+        "0x0072": {
+            "name": "CBS_DBG_CLDO_VDDM0",
+            "brief": "",
+            "details": ""
+        },
+        "0x0073": {
+            "name": "CBS_DBG_CLDO_VDDM1",
+            "brief": "",
+            "details": ""
+        },
+        "0x0074": {
+            "name": "CBS_DBG_CLDO_VDDP_CTL",
+            "brief": "",
+            "details": ""
+        },
+        "0x0075": {
+            "name": "CBS_DBG_CLDOVDD_PVOLTAGE",
+            "brief": "",
+            "details": ""
+        },
+        "0x0076": {
+            "name": "CBS_DBG_CLDO_VDDM_CTL",
+            "brief": "",
+            "details": ""
+        },
+        "0x0077": {
+            "name": "CBS_DBG_CLDOVDD_MVOLTAGE",
+            "brief": "",
+            "details": ""
+        },
+        "0x0078": {
+            "name": "CBS_DBG_CPU_GEN_ABL_BP",
+            "brief": "",
+            "details": ""
+        },
+        "0x0079": {
+            "name": "CBS_DBG_CPU_GEN_ABL_CON_OUT",
+            "brief": "",
+            "details": ""
+        },
+        "0x007A": {
+            "name": "CBS_DBG_MEM_UMC_KEY0_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x007B": {
+            "name": "CBS_DBG_MEM_CTRLLER_PMU_TRAIN_DFE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x007C": {
+            "name": "CBS_DBG_MEM_CTRLLER_PMU_TRAIN_FFE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x007D": {
+            "name": "CBS_DBG_GNB_DBGU_NBIO_PORT80_TRACING",
+            "brief": "",
+            "details": ""
+        },
+        "0x007E": {
+            "name": "CBS_DBG_GNB_DBGU_NBIO_PORT80_TIMESTAMP",
+            "brief": "",
+            "details": ""
+        },
+        "0x007F": {
+            "name": "CBS_DBG_GNB_RESERVED1",
+            "brief": "",
+            "details": ""
+        },
+        "0x0080": {
+            "name": "CBS_DBG_GNB_RESERVED2",
+            "brief": "",
+            "details": ""
+        },
+        "0x0081": {
+            "name": "CBS_DF_DBG_CAKE_TKN_THRESH",
+            "brief": "",
+            "details": ""
+        },
+        "0x0082": {
+            "name": "CBS_DF_DBG_OPT_CAKE_DAT_LAT",
+            "brief": "",
+            "details": ""
+        },
+        "0x0083": {
+            "name": "CBS_DF_DBG_CPU_MSTR_RCV_PRB_RSP",
+            "brief": "",
+            "details": ""
+        },
+        "0x0084": {
+            "name": "CBS_DF_DBG_IO_MSTR_RCV_PRB_RSP",
+            "brief": "",
+            "details": ""
+        },
+        "0x0085": {
+            "name": "CBS_DBG_CLDO_VDDM",
+            "brief": "",
+            "details": ""
+        },
+        "0x0086": {
+            "name": "CBS_DBG_MEM_PSTATES_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0087": {
+            "name": "CBS_DBG_CBS_SMU_FCLKUCLK_MODE",
+            "brief": "",
+            "details": ""
+        },
+        "0x0088": {
+            "name": "CBS_DBG_CLDO_VDDP",
+            "brief": "",
+            "details": ""
+        },
+        "0x0089": {
+            "name": "CBS_DBG_VDDP_VOLTAGE_CTL",
+            "brief": "",
+            "details": ""
+        },
+        "0x008A": {
+            "name": "CBS_DBG_VDDP_VOLTAGE",
+            "brief": "",
+            "details": ""
+        },
+        "0x008B": {
+            "name": "CBS_DBG_VDDM_VOLTAGE_CTL",
+            "brief": "",
+            "details": ""
+        },
+        "0x008C": {
+            "name": "CBS_DBG_VDDM_VOLTAGE",
+            "brief": "",
+            "details": ""
+        },
+        "0x008D": {
+            "name": "CBS_DBG_MEM_TEMP_CTRL_REF_MODE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x008E": {
+            "name": "CBS_DBG_MEM_RRW_FOR_ALL_MSTATES_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x008F": {
+            "name": "CBS_DBG_MEM_PHY_RX_EN_DLY_OVERRIDE_OP",
+            "brief": "",
+            "details": ""
+        },
+        "0x0090": {
+            "name": "CBS_DBG_MEM_PHY_RX_EN_DLY_OVERRIDE_VALUE",
+            "brief": "",
+            "details": ""
+        },
+        "0x0091": {
+            "name": "CBS_DBG_MEM_DATA_MASK_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0092": {
+            "name": "CBS_DBG_MEM_CTRLLER_CPU_VREF_TRAINING_SEED_CTRL_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0093": {
+            "name": "CBS_DBG_MEM_CTRLLER_CPU_VREF_TRAINING_SEED_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0094": {
+            "name": "CBS_DBG_MEM_RD_PREAMBLE_CRITICAL_SPEED_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0095": {
+            "name": "CBS_DBG_MEM_RD_PREAMBLE_MSTATE_BITMAP_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0096": {
+            "name": "CBS_DBG_MEM_WR_PREAMBLE_CRITICAL_SPEED_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0097": {
+            "name": "CBS_DBG_MEM_WR_PREAMBLE_MSTATE_BITMAP_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x0098": {
+            "name": "CBS_DBG_MEM_CTRLLER_CUSTOM1_D_MSG_CTRL1",
+            "brief": "",
+            "details": ""
+        },
+        "0x0099": {
+            "name": "CBS_DBG_MEM_CTRLLER1_D_MSG_OFFSET1",
+            "brief": "",
+            "details": ""
+        },
+        "0x009A": {
+            "name": "CBS_DBG_MEM_CTRLLER1_D_MSG_DATA1",
+            "brief": "",
+            "details": ""
+        },
+        "0x009B": {
+            "name": "CBS_DBG_MEM_CTRLLER_CUSTOM1_D_MSG_CTRL2",
+            "brief": "",
+            "details": ""
+        },
+        "0x009C": {
+            "name": "CBS_DBG_MEM_CTRLLER1_D_MSG_OFFSET2",
+            "brief": "",
+            "details": ""
+        },
+        "0x009D": {
+            "name": "CBS_DBG_MEM_CTRLLER1_D_MSG_DATA2",
+            "brief": "",
+            "details": ""
+        },
+        "0x009E": {
+            "name": "CBS_DBG_MEM_CTRLLER_CUSTOM2_D_MSG_CTRL1",
+            "brief": "",
+            "details": ""
+        },
+        "0x009F": {
+            "name": "CBS_DBG_MEM_CTRLLER2_D_MSG_OFFSET1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A0": {
+            "name": "CBS_DBG_MEM_CTRLLER2_D_MSG_DATA1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A1": {
+            "name": "CBS_DBG_MEM_CTRLLER_CUSTOM2_D_MSG_CTRL2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A2": {
+            "name": "CBS_DBG_MEM_CTRLLER2_D_MSG_OFFSET2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A3": {
+            "name": "CBS_DBG_MEM_CTRLLER2_D_MSG_DATA2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A4": {
+            "name": "CBS_DBG_MEM_PHY_RX_CLK_DLY_OVERRIDE_OP",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A5": {
+            "name": "CBS_DBG_MEM_PHY_RX_CLK_DLY_OVERRIDE_VALUE",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A6": {
+            "name": "CBS_DBG_MEM_PHY_VREF_DA_C1_OVERRIDE_OP",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A7": {
+            "name": "CBS_DBG_MEM_PHY_VREF_DA_C1_OVERRIDE_VALUE",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A8": {
+            "name": "CBS_DBG_CPU_PM_SC_THROTTLE",
+            "brief": "",
+            "details": ""
+        },
+        "0x00A9": {
+            "name": "CBS_DBG_CPU_PM_SC_THROTTLE_CTRL",
+            "brief": "",
+            "details": ""
+        },
+        "0x00AA": {
+            "name": "CBS_DBG_MEM_CTRLLER_DATA_SCRAMBLE_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x00AB": {
+            "name": "CBS_DBG_MEM_CONTEXT_RESTORE",
+            "brief": "",
+            "details": ""
+        },
+        "0x00AC": {
+            "name": "CBS_DBG_MEM_PHY_RX_PB_DLY_OVERRIDE_OP",
+            "brief": "",
+            "details": ""
+        },
+        "0x00AD": {
+            "name": "CBS_DBG_MEM_PHY_RX_PB_DLY_OVERRIDE_VALUE",
+            "brief": "",
+            "details": ""
+        },
+        "0x00AE": {
+            "name": "CBS_DBG_CPU_GEN_ABL_CON_DBG",
+            "brief": "",
+            "details": ""
+        },
+        "0x00AF": {
+            "name": "CBS_DBG_MEM_VREF_DAC_PERBIT_CTL",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B0": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_LO0",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B1": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_HI0",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B2": {
+            "name": "CBS_DBG_MEM_VREF_DAC_SELECT0",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B3": {
+            "name": "CBS_DBG_MEM_VREF_DAC_STEP0",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B4": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_LO1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B5": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_HI1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B6": {
+            "name": "CBS_DBG_MEM_VREF_DAC_SELECT1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B7": {
+            "name": "CBS_DBG_MEM_VREF_DAC_STEP1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B8": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_LO2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00B9": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_HI2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00BA": {
+            "name": "CBS_DBG_MEM_VREF_DAC_SELECT2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00BB": {
+            "name": "CBS_DBG_MEM_VREF_DAC_STEP2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00BC": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_LO3",
+            "brief": "",
+            "details": ""
+        },
+        "0x00BD": {
+            "name": "CBS_DBG_MEM_VREF_DAC_BIT_MSK_HI3",
+            "brief": "",
+            "details": ""
+        },
+        "0x00BE": {
+            "name": "CBS_DBG_MEM_VREF_DAC_SELECT3",
+            "brief": "",
+            "details": ""
+        },
+        "0x00BF": {
+            "name": "CBS_DBG_MEM_VREF_DAC_STEP3",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C0": {
+            "name": "CBS_DBG_MEM_VREF_DAC_UMC_SELECT0",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C1": {
+            "name": "CBS_DBG_MEM_VREF_DAC_UMC_SELECT1",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C2": {
+            "name": "CBS_DBG_MEM_VREF_DAC_UMC_SELECT2",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C3": {
+            "name": "CBS_DBG_MEM_VREF_DAC_UMC_SELECT3",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C4": {
+            "name": "CBS_DBG_MEM_PMU_TARGET_UMC_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C5": {
+            "name": "CBS_DBG_MEM_PHY_TX_DQ_DLY_OVERRIDE_OP",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C6": {
+            "name": "CBS_DBG_MEM_PHY_TX_DQ_DLY_OVERRIDE_VALUE",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C7": {
+            "name": "CBS_DBG_MEM_ERROR_RECOVERY_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C8": {
+            "name": "CBS_DBG_CPU_GEN_SYNC_FLOOD_MCA",
+            "brief": "",
+            "details": ""
+        },
+        "0x00C9": {
+            "name": "CBS_DBG_MEM_CTRLLER_DRAM_OUTPUT_DRV_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x00CA": {
+            "name": "CBS_DBG_MEM_POWER_OPT_SETTING_DDR4",
+            "brief": "",
+            "details": ""
+        },
+        "0x00CB": {
+            "name": "CBS_DBG_END",
+            "brief": "",
+            "details": ""
+        }
+    }
+}

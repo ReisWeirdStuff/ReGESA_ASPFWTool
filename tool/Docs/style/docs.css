@@ -1,0 +1,131 @@
+/* Shared documentation stylesheet */
+
+/*
+Theme model:
+ - Default to light variables in :root for neutral rendering.
+ - Respect system preference via prefers-color-scheme.
+ - Allow explicit override by setting data-theme="dark" or "light" on <html>.
+*/
+
+/* Light theme (default) */
+:root {
+  --bg: #f8f8f8;
+  --fg: #191919;
+  --accent: #e06060;
+  --link: #0066cc;
+  --link-hover: #2d7dd2;
+  --table-bg: #fafafa;
+  --table-head-bg: #efefef;
+  --table-border: #dcdcdc;
+  --code-bg: #f5f5f5;
+  --code-fg: #a31515;
+  --muted: #666666;
+  --note-bg: #fff8e1;
+  --note-border: #e0b90f;
+  --note-fg: #7a5b00;
+  --guid-fg: #2a6e3f;
+}
+
+/* Dark theme (system preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1e1e;
+    --fg: #d4d4d4;
+    --accent: #e06060;
+    --link: #569cd6;
+    --link-hover: #77bdf2;
+    --table-bg: #252526;
+    --table-head-bg: #333333;
+    --table-border: #404040;
+    --code-bg: #2d2d2d;
+    --code-fg: #ce9178;
+    --muted: #888888;
+    --note-bg: #3d3d00;
+    --note-border: #daa520;
+    --note-fg: #e0e0a0;
+    --guid-fg: #b5cea8;
+  }
+}
+
+/* Explicit overrides from the application */
+html[data-theme="light"] {
+  --bg: #f8f8f8;
+  --fg: #191919;
+  --accent: #e06060;
+  --link: #0066cc;
+  --link-hover: #2d7dd2;
+  --table-bg: #fafafa;
+  --table-head-bg: #efefef;
+  --table-border: #dcdcdc;
+  --code-bg: #f5f5f5;
+  --code-fg: #a31515;
+  --muted: #666666;
+  --note-bg: #fff8e1;
+  --note-border: #e0b90f;
+  --note-fg: #7a5b00;
+  --guid-fg: #2a6e3f;
+}
+
+html[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --fg: #d4d4d4;
+  --accent: #e06060;
+  --link: #569cd6;
+  --link-hover: #77bdf2;
+  --table-bg: #252526;
+  --table-head-bg: #333333;
+  --table-border: #404040;
+  --code-bg: #2d2d2d;
+  --code-fg: #ce9178;
+  --muted: #888888;
+  --note-bg: #3d3d00;
+  --note-border: #daa520;
+  --note-fg: #e0e0a0;
+  --guid-fg: #b5cea8;
+}
+
+html, body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+body { padding: 20px; }
+
+h1, h2, h3 { color: var(--accent); margin-top: 0; }
+
+h1 { border-bottom: 2px solid var(--accent); padding-bottom: 6px; }
+
+p { margin: 10px 0; }
+
+a { color: var(--link); text-decoration: none; }
+
+a:hover { text-decoration: underline; color: var(--link-hover); }
+
+ul, ol { margin: 10px 0; padding-left: 25px; }
+
+li { margin: 5px 0; }
+
+code { background-color: var(--code-bg); color: var(--code-fg); padding: 2px 6px; border-radius: 3px; font-family: Consolas, 'Courier New', monospace; }
+
+.placeholder { color: var(--muted); font-style: italic; }
+
+.table, table { border-collapse: collapse; margin: 10px 0; background: var(--table-bg); }
+
+table th, table td { border: 1px solid var(--table-border); padding: 6px 10px; text-align: left; }
+
+table th { background: var(--table-head-bg); color: #4fc3f7; }
+
+table td { color: var(--fg); }
+
+.offset { font-family: Consolas, 'Courier New', monospace; color: var(--guid-fg); }
+
+.note { background: var(--note-bg); border-left: 4px solid var(--note-border); padding: 10px; margin: 10px 0; color: var(--note-fg); }
+
+/* About page table adjustments */
+.info-table { border-collapse: collapse; margin: 15px 0; }
+.info-table td { padding: 4px 12px 4px 0; vertical-align: top; }
+.info-table td b { color: #4fc3f7; }

@@ -1,0 +1,203 @@
+{
+    "metadata": {
+        "version": "Pre-Alpha 25.0.0.0",
+        "description": "BIOS Directory Entry Type Names"
+    },
+    "types": {
+        "0x05": [
+            "IMAGE",
+            "OemPubKey",
+            "Location field points to the public part of the OEM/IBV BIOS Signing Key Token or BIOS Signing Sub-CA Key Token when OEM uses a BIOS Signing Sub-CA key hierarchy."
+        ],
+        "0x06": [
+            "IMAGE",
+            "OemPubKey2",
+            "Location filed points to the public part of the OEM/IBV BIOS Signing Key Token when OEM uses a BIOS Signing Sub-CA key hierarchy otherwise left as reserved"
+        ],
+        "0x07": [
+            "IMAGE",
+            "RtmSignature",
+            "BIOS RTM volume Signature using OEM private key"
+        ],
+        "0x20": [
+            "IMAGE",
+            "HwIpCfg",
+            "IP Discovery Binary"
+        ],
+        "0x5C": [
+            "IMAGE",
+            "WMOS",
+            "Wireless manageability - OS image"
+        ],
+        "0x5D": [
+            "IMAGE",
+            "WMPIL",
+            "Wireless manageability - Proprietary IP Libraries"
+        ],
+        "0x5E": [
+            "IMAGE",
+            "WMC",
+            "Wireless manageability - Configuration"
+        ],
+        "0x60": [
+            "IMAGE",
+            "Apcb",
+            "Agesa PSP Customization Block"
+        ],
+        "0x61": [
+            "POINT",
+            "Apob",
+            "Agesa PSP Output Block"
+        ],
+        "0x62": [
+            "IMAGE",
+            "BiosFirmware",
+            "Bios firmware"
+        ],
+        "0x63": [
+            "IMAGE",
+            "ApobNv",
+            "APOB NV Copy"
+        ],
+        "0x64": [
+            "IMAGE",
+            "PmuCode",
+            "Instruction portion of PMU firmware"
+        ],
+        "0x65": [
+            "IMAGE",
+            "PmuData",
+            "Data portion of PMU firmware"
+        ],
+        "0x66": [
+            "IMAGE",
+            "UCodePatch",
+            "Microcode Patch"
+        ],
+        "0x67": [
+            "IMAGE",
+            "CoreMceData",
+            "core machine check exception data"
+        ],
+        "0x68": [
+            "IMAGE",
+            "ApcbRec",
+            "Location field points to the backup copy of APCB data"
+        ],
+        "0x69": [
+            "IMAGE",
+            "EarlyVgaImage",
+            "Location field pointing to the interpreter binary that displays the video image"
+        ],
+        "0x6A": [
+            "IMAGE",
+            "Mp2Cfg",
+            "Location field pointing to the MP2 FW configuration file"
+        ],
+        "0x6B": [
+            "IMAGE",
+            "MainMemory",
+            "Location field pointing to Main memory, which is shared with x86 from PSP FW (BIOS/Coreboot)"
+        ],
+        "0x6C": [
+            "IMAGE",
+            "MpmCfg",
+            "MPM specific Configurations which will be used by AMF"
+        ],
+        "0x6D": [
+            "IMAGE",
+            "RomArmor2",
+            "Location field points to BIOS variable flash NV store"
+        ],
+        "0x6E": [
+            "IMAGE",
+            "DebugUnit",
+            "Deployment of various IP Debug Unit (DBGU) and Debug State Machine (DSM) setups."
+        ],
+        "0x6F": [
+            "IMAGE",
+            "OemLogo",
+            "The OEM logo image used by BIOS directory type 0x69."
+        ],
+        "0x70": [
+            "POINT",
+            "BIOSDirLv2",
+            "Point to BIOS level 2 directory"
+        ],
+        "0x71": [
+            "IMAGE",
+            "DisUsb4Fw",
+            "Discrete USB4 FW"
+        ],
+        "0x72": [
+            "IMAGE",
+            "SigApcb60",
+            "Signature of APCB 0x60"
+        ],
+        "0x73": [
+            "IMAGE",
+            "SigApcb68",
+            "Signature of APCB 0x68"
+        ],
+        "0x74": [
+            "IMAGE",
+            "ApcbPubKey",
+            "APCB Public key"
+        ],
+        "0x75": [
+            "IMAGE",
+            "TokenVcn",
+            "FMTC signed by customer Key and installed by customer to be used only within secure manufacturing"
+        ],
+        "0x76": [
+            "IMAGE",
+            "SignKeyVcn",
+            "Public key delivered securely by customer to AMD, and signed/certified by AMD"
+        ],
+        "0x77": [
+            "IMAGE",
+            "PcuFw",
+            "PCU FW"
+        ],
+        "0x78": [
+            "IMAGE",
+            "FmtcKey",
+            "Optional Public key delivered securely by customer to AMD, and signed/certified by AMD"
+        ],
+        "0x79": [
+            "IMAGE",
+            "Fmtc",
+            "FMTC with ALL tokens personalized to be valid for, and restricted to, specific SOC(s)"
+        ],
+        "0x7A": [
+            "IMAGE",
+            "SleuthBinary",
+            "Secure Logging of End-User Trouble History (SLEUTH). Used to log issues during BLs2 and keep the records in SPI flash."
+        ],
+        "0x7B": [
+            "IMAGE",
+            "MprasApplet",
+            "MPRAS applet is a user space module which runs on MPRAS IP to enable the RAS use cases."
+        ],
+        "0x7C": [
+            "IMAGE",
+            "OcSweetSpotProfile",
+            "Sweet Spot Profile is to provide a 1-click solution to enable platform optimized memory overclocking profiles for specific DIMMs like a software EXPO Profile."
+        ],
+        "0x96": [
+            "IMAGE",
+            "AmdFfsFfd",
+            "Secure Coprocessor Enforced System Firmware"
+        ],
+        "0x97": [
+            "IMAGE",
+            "AmdFfsFfdkey",
+            "Public key for AMD SFFS"
+        ],
+        "0xC0": [
+            "IMAGE",
+            "Bl31_32Fw",
+            "BL31 FW is ARM Trusted Firmware. BL32 FW is ARM SPMC(Halfnium) + Secure Partitions."
+        ]
+    }
+}
