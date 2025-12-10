@@ -196,10 +196,10 @@ class ImageModificationMixin:
         if names:
             joined = ", ".join(names)
             if len(joined) > 60:
-                joined = joined[:57] + "…"
+                joined = joined[:57] + "..."
             title = f"{joined} - {self._base_title}"
         if any(img.dirty for img in self.loaded_images):
-            title = f"● {title}"
+            title = f"- {title}"
         self.setWindowTitle(title)
 
     def _reprocess_image(self: "MainWindow", image_index: int) -> None:

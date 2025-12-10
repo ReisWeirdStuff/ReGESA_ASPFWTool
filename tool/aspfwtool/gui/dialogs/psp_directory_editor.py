@@ -179,15 +179,15 @@ class DirectoryEditDialog(QDialog):
         self._first_field_column = 1
         self._column_specs: Dict[int, _FieldSpec] = {}
         self._cookie_edit: Optional[QLineEdit] = None
-        self._max_size_spin: Optional[QSpinBox] = None
-        self._spi_block_spin: Optional[QSpinBox] = None
-        self._base_bits_spin: Optional[QSpinBox] = None
         self._info_value_label: Optional[QLabel] = None
-        self._address_mode_label: Optional[QLabel] = None
-        self._size_override_label: Optional[QLabel] = None
+        self._max_size_edit: Optional[QLineEdit] = None
+        self._spi_block_edit: Optional[QLineEdit] = None
+        self._base_bits_edit: Optional[QLineEdit] = None
+        self._address_mode_edit: Optional[QLineEdit] = None
+        self._dir_header_edit: Optional[QLineEdit] = None
+        self._entry_version_edit: Optional[QLineEdit] = None
         self._count_spin: Optional[QSpinBox] = None
         self._checksum_label: Optional[QLabel] = None
-        self._base_addr_label: Optional[QLabel] = None
 
         self._setup_table()
         get_logger().debug(
@@ -329,16 +329,19 @@ class DirectoryEditDialog(QDialog):
             self._header_form.addRow(message)
             return
 
-        # === Cookie (4 bytes) - View only ===
-        cookie_label = QLabel(self)
+        # === Cookie (4 bytes) - Editable ===
+        cookie_edit = QLineEdit(self)
+        cookie_edit.setMaxLength(4)
+        cookie_edit.setPlaceholderText("4 ASCII chars")
         cookie_bytes = self._header_original.get("cookie")
         if isinstance(cookie_bytes, (bytes, bytearray)) and len(cookie_bytes) == 4:
             try:
                 cookie_text = cookie_bytes.decode("ascii")
             except Exception:
                 cookie_text = cookie_bytes.hex().upper()
-            cookie_label.setText(f"{cookie_text} ({cookie_bytes.hex().upper()})")
-        self._header_form.addRow("Cookie (4B):", cookie_label)
+            cookie_edit.setText(cookie_text)
+        self._header_form.addRow("Cookie (4B):", cookie_edit)
+        self._cookie_edit = cookie_edit
         
         # === Checksum (4 bytes) - View only ===
         # Read checksum from offset 4 in the header
@@ -378,59 +381,101 @@ class DirectoryEditDialog(QDialog):
         self._info_value_label = info_label
         
         # Add separator
-        separator = QLabel("── Additional Info Fields ──", self)
+        separator = QLabel("-- Additional Info Fields --", self)
         separator.setStyleSheet("color: gray; font-style: italic;")
         self._header_form.addRow("", separator)
 
-        # === Reserved bit 0 (1 bit) - View only ===
-        reserved_bit0 = raw_info & 0x1
-        reserved_bit0_label = QLabel(f"{reserved_bit0}", self)
-        self._header_form.addRow("Reserved [0]:", reserved_bit0_label)
+        # === Version bit 31 (1 bit) - View only ===
+        version = int(self._header_original.get("version", 0)) & 0x1
+        version_label = QLabel(f"{version}", self)
+        version_label.setToolTip("Version bit determines field layout (0=old, 1=new)")
+        self._header_form.addRow("Version [31]:", version_label)
 
-        # === Max Size (10 bits) [10:1] - Editable ===
-        max_size_spin = QSpinBox(self)
-        max_size_spin.setRange(0, 0x3FF)
-        max_size_spin.setValue(int(self._header_original.get("max_size", 0)))
-        max_size_spin.setToolTip("Maximum directory size in 4KB units (bits 10:1)")
-        max_size_spin.valueChanged.connect(self._update_info_preview)
-        self._header_form.addRow("Max Size [10:1] (10b):", max_size_spin)
-        self._max_size_spin = max_size_spin
+        if version == 1:
+            # Version 1 layout:
+            # [15:0] Size, [19:16] SpiBlockSize(power), [23:20] HeaderSize, [25:24] Mode, [27:26] EntryVer, [31]=1
+            
+            # === Directory Size (16 bits) [15:0] ===
+            max_size_value = int(self._header_original.get("max_size", 0)) & 0xFFFF
+            max_size_edit = QLineEdit(self)
+            max_size_edit.setText(f"0x{max_size_value:04X}")
+            max_size_edit.setToolTip("Directory size in 4KB units (bits 15:0)")
+            self._header_form.addRow("Dir Size [15:0] (16b):", max_size_edit)
+            self._max_size_edit = max_size_edit
 
-        # === SPI Block Size (4 bits) [14:11] - Editable ===
-        spi_block_spin = QSpinBox(self)
-        spi_block_spin.setRange(0, 0x0F)
-        spi_block_spin.setValue(int(self._header_original.get("spi_block", 0)))
-        spi_block_spin.setToolTip("SPI flash block size (bits 14:11)")
-        spi_block_spin.valueChanged.connect(self._update_info_preview)
-        self._header_form.addRow("SPI Block Size [14:11] (4b):", spi_block_spin)
-        self._spi_block_spin = spi_block_spin
+            # === SPI Block Size (4 bits) [19:16] - Power of 2 ===
+            spi_block_value = int(self._header_original.get("spi_block", 0)) & 0x0F
+            spi_block_edit = QLineEdit(self)
+            spi_block_edit.setText(f"0x{spi_block_value:X}")
+            spi_block_edit.setToolTip("SPI block size as power of 2: 4K * (1 << value) (bits 19:16)")
+            self._header_form.addRow("SPI Block Size [19:16] (4b):", spi_block_edit)
+            self._spi_block_edit = spi_block_edit
 
-        # === Base Address (15 bits) [29:15] - Editable ===
-        base_bits_spin = QSpinBox(self)
-        base_bits_spin.setRange(0, 0x7FFF)
-        base_bits_spin.setValue(int(self._header_original.get("base_bits", 0)))
-        base_bits_spin.setToolTip("Base address bits (bits 29:15), shifted << 12 for actual address")
-        base_bits_spin.valueChanged.connect(self._update_info_preview)
-        self._header_form.addRow("Base Address [29:15] (15b):", base_bits_spin)
-        self._base_bits_spin = base_bits_spin
-        
-        # Show computed base address
-        base_addr = int(self._header_original.get("base_bits", 0)) << 12
-        base_addr_label = QLabel(f"0x{base_addr:08X}", self)
-        base_addr_label.setToolTip("Computed base address = Base Address Bits << 12")
-        self._header_form.addRow("  (Computed Address):", base_addr_label)
-        self._base_addr_label = base_addr_label
+            # === Dir Header Size (4 bits) [23:20] ===
+            dir_header_size = int(self._header_original.get("dir_header_size", 0)) & 0x0F
+            dir_header_edit = QLineEdit(self)
+            dir_header_edit.setText(f"0x{dir_header_size:X}")
+            dir_header_edit.setToolTip("Directory header size in 1KB units (bits 23:20)")
+            self._header_form.addRow("Header Size [23:20] (4b):", dir_header_edit)
+            self._dir_header_edit = dir_header_edit
 
-        # === Address Mode (2 bits) [31:30] - View only ===
-        address_mode_value = int(self._header_original.get("address_mode", 0)) & 0x3
-        mode_names = {0: "X86 physical", 1: "BIOS offset", 2: "Directory relative", 3: "Partition relative"}
-        mode_text = f"{address_mode_value} - {mode_names.get(address_mode_value, 'Unknown')}"
-        address_mode_label = QLabel(mode_text, self)
-        address_mode_label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-        self._header_form.addRow("Address Mode [31:30] (2b):", address_mode_label)
-        self._address_mode_label = address_mode_label
+            # === Address Mode (2 bits) [25:24] ===
+            address_mode_value = int(self._header_original.get("address_mode", 0)) & 0x3
+            address_mode_edit = QLineEdit(self)
+            address_mode_edit.setText(f"0x{address_mode_value:X}")
+            address_mode_edit.setToolTip("0=X86 physical, 1=BIOS offset, 2=Directory relative, 3=Partition relative")
+            self._header_form.addRow("Address Mode [25:24] (2b):", address_mode_edit)
+            self._address_mode_edit = address_mode_edit
 
-        self._update_info_preview()
+            # === Entry Version (2 bits) [27:26] ===
+            entry_version = int(self._header_original.get("entry_version", 0)) & 0x3
+            entry_ver_edit = QLineEdit(self)
+            entry_ver_edit.setText(f"0x{entry_version:X}")
+            entry_ver_edit.setToolTip("Entry version (bits 27:26)")
+            self._header_form.addRow("Entry Version [27:26] (2b):", entry_ver_edit)
+            self._entry_version_edit = entry_ver_edit
+
+            # No base address in version 1
+            self._base_bits_edit = None
+        else:
+            # Version 0 layout:
+            # [9:0] Size, [13:10] SpiBlockSize, [28:14] BaseAddr, [30:29] Mode, [31]=0
+            
+            # === Directory Size (10 bits) [9:0] ===
+            max_size_value = int(self._header_original.get("max_size", 0)) & 0x3FF
+            max_size_edit = QLineEdit(self)
+            max_size_edit.setText(f"0x{max_size_value:03X}")
+            max_size_edit.setToolTip("Directory size in 4KB units (bits 9:0)")
+            self._header_form.addRow("Dir Size [9:0] (10b):", max_size_edit)
+            self._max_size_edit = max_size_edit
+
+            # === SPI Block Size (4 bits) [13:10] ===
+            spi_block_value = int(self._header_original.get("spi_block", 0)) & 0x0F
+            spi_block_edit = QLineEdit(self)
+            spi_block_edit.setText(f"0x{spi_block_value:X}")
+            spi_block_edit.setToolTip("SPI block size: value * 4KB (bits 13:10)")
+            self._header_form.addRow("SPI Block Size [13:10] (4b):", spi_block_edit)
+            self._spi_block_edit = spi_block_edit
+
+            # === Base Address (15 bits) [28:14] ===
+            base_bits_value = int(self._header_original.get("base_bits", 0)) & 0x7FFF
+            base_bits_edit = QLineEdit(self)
+            base_bits_edit.setText(f"0x{base_bits_value:04X}")
+            base_bits_edit.setToolTip("Base address bits [26:12], actual address = value << 12 (bits 28:14)")
+            self._header_form.addRow("Base Address [28:14] (15b):", base_bits_edit)
+            self._base_bits_edit = base_bits_edit
+
+            # === Address Mode (2 bits) [30:29] ===
+            address_mode_value = int(self._header_original.get("address_mode", 0)) & 0x3
+            address_mode_edit = QLineEdit(self)
+            address_mode_edit.setText(f"0x{address_mode_value:X}")
+            address_mode_edit.setToolTip("0=X86 physical, 1=BIOS offset, 2=Directory relative, 3=Partition relative")
+            self._header_form.addRow("Address Mode [30:29] (2b):", address_mode_edit)
+            self._address_mode_edit = address_mode_edit
+
+            # No dir header size or entry version in version 0
+            self._dir_header_edit = None
+            self._entry_version_edit = None
 
     # ------------------------------------------------------------------
     # Data preparation helpers
@@ -438,7 +483,7 @@ class DirectoryEditDialog(QDialog):
     def _field_specs_for_kind(self, kind: DirKind) -> List[_FieldSpec]:
         if is_combo_dir(kind):
             return [
-                _FieldSpec("type_value", "Type", 32, "hex"),
+                _FieldSpec("type_value", "Mode", 32, "hex"),
                 _FieldSpec("combo_pspid", "Match (PSPID)", 32, "hex"),
                 _FieldSpec("combo_pointer", "Pointer", 64, "pointer"),
             ]
@@ -653,14 +698,17 @@ class DirectoryEditDialog(QDialog):
         if _constants.is_combo_dir(self.directory.kind):
             return info
         raw_info = int(getattr(header, "Info", 0) or 0) & 0xFFFFFFFF
+        version = (raw_info >> 31) & 0x1
         info.update(
             {
                 "info": raw_info,
-                "max_size": int(getattr(header, "MaxSize", 0) or 0) & 0x3FF,
+                "version": version,
+                "max_size": int(getattr(header, "MaxSize", 0) or 0),
                 "spi_block": int(getattr(header, "SpiBlockSize", 0) or 0) & 0x0F,
-                "base_bits": int(getattr(header, "BaseAddressBits", 0) or 0) & 0x7FFF,
+                "base_bits": int(getattr(header, "BaseAddressBits", 0) or 0),
                 "address_mode": int(getattr(header, "AddressMode", 0) or 0) & 0x03,
-                "reserved_bit0": raw_info & 0x1,
+                "dir_header_size": int(getattr(header, "DirHeaderSize", 0) or 0) & 0x0F,
+                "entry_version": int(getattr(header, "EntryVersion", 0) or 0) & 0x03,
             }
         )
         return info
@@ -707,34 +755,24 @@ class DirectoryEditDialog(QDialog):
     # ------------------------------------------------------------------
     # Header helpers
     # ------------------------------------------------------------------
-    def _update_info_preview(self) -> None:
-        if not all([self._info_value_label, self._max_size_spin, self._spi_block_spin, self._base_bits_spin]):
-            return
-        max_size = int(self._max_size_spin.value()) & 0x3FF
-        spi_block = int(self._spi_block_spin.value()) & 0x0F
-        base_bits = int(self._base_bits_spin.value()) & 0x7FFF
-        address_mode = int(self._header_original.get("address_mode", 0)) & 0x03
-        reserved = int(self._header_original.get("reserved_bit0", 0)) & 0x01
-        info_value = (
-            reserved
-            | (max_size << 1)
-            | (spi_block << 11)
-            | (base_bits << 15)
-            | (address_mode << 30)
-        )
-        self._info_value_label.setText(f"0x{info_value:08X}")
-        
-        # Update computed base address label
-        if hasattr(self, "_base_addr_label") and self._base_addr_label is not None:
-            base_addr = base_bits << 12
-            self._base_addr_label.setText(f"0x{base_addr:08X}")
+    # Note: Additional Info fields are now view-only, no _update_info_preview needed
 
     def _collect_header_update(self) -> Optional[dict]:
         if not self._header_original:
             return None
         update: Dict[str, object] = {}
         
-        # Cookie is now read-only, so we don't collect it
+        # Collect cookie if changed
+        if hasattr(self, "_cookie_edit") and self._cookie_edit is not None:
+            new_cookie_text = self._cookie_edit.text()
+            if len(new_cookie_text) == 4:
+                try:
+                    new_cookie = new_cookie_text.encode("ascii")
+                    old_cookie = self._header_original.get("cookie", b"")
+                    if new_cookie != old_cookie:
+                        update["cookie"] = new_cookie
+                except UnicodeEncodeError:
+                    pass  # Invalid ASCII, ignore
         
         # Collect count if changed
         if hasattr(self, "_count_spin") and self._count_spin is not None:
@@ -743,34 +781,70 @@ class DirectoryEditDialog(QDialog):
             if new_count != old_count:
                 update["count"] = new_count
         
-        if _constants.is_combo_dir(self.directory.kind):
-            return update or None
-        if not all([self._info_value_label, self._max_size_spin, self._spi_block_spin, self._base_bits_spin]):
-            return update or None
-        info_original = self._header_original.get("info")
-        if info_original is None:
-            return update or None
-        max_size = int(self._max_size_spin.value()) & 0x3FF
-        spi_block = int(self._spi_block_spin.value()) & 0x0F
-        base_bits = int(self._base_bits_spin.value()) & 0x7FFF
-        address_mode = int(self._header_original.get("address_mode", 0)) & 0x03
-        reserved = int(self._header_original.get("reserved_bit0", 0)) & 0x01
-        info_value = (
-            reserved
-            | (max_size << 1)
-            | (spi_block << 11)
-            | (base_bits << 15)
-            | (address_mode << 30)
-        ) & 0xFFFFFFFF
-        if info_value != (int(info_original) & 0xFFFFFFFF):
-            update.update(
-                {
-                    "info": info_value,
-                    "max_size": max_size,
-                    "spi_block": spi_block,
-                    "base_bits": base_bits,
-                }
-            )
+        # Collect Additional Info fields if changed (non-combo directories only)
+        if not _constants.is_combo_dir(self.directory.kind):
+            info_original = self._header_original.get("info")
+            if info_original is not None:
+                version = int(self._header_original.get("version", 0)) & 0x01
+                
+                # Parse editable fields based on version
+                try:
+                    max_size = int(self._max_size_edit.text(), 0) if self._max_size_edit else 0
+                except ValueError:
+                    max_size = int(self._header_original.get("max_size", 0))
+                
+                try:
+                    spi_block = int(self._spi_block_edit.text(), 0) & 0x0F if self._spi_block_edit else 0
+                except ValueError:
+                    spi_block = int(self._header_original.get("spi_block", 0)) & 0x0F
+                
+                try:
+                    address_mode = int(self._address_mode_edit.text(), 0) & 0x03 if self._address_mode_edit else 0
+                except ValueError:
+                    address_mode = int(self._header_original.get("address_mode", 0)) & 0x03
+                
+                # Build info value based on version
+                if version == 1:
+                    # Version 1: [15:0]Size [19:16]SpiBlock [23:20]HeaderSize [25:24]Mode [27:26]EntryVer [31]=1
+                    max_size &= 0xFFFF  # 16 bits
+                    
+                    try:
+                        dir_header_size = int(self._dir_header_edit.text(), 0) & 0x0F if self._dir_header_edit else 0
+                    except ValueError:
+                        dir_header_size = int(self._header_original.get("dir_header_size", 0)) & 0x0F
+                    
+                    try:
+                        entry_version = int(self._entry_version_edit.text(), 0) & 0x03 if self._entry_version_edit else 0
+                    except ValueError:
+                        entry_version = int(self._header_original.get("entry_version", 0)) & 0x03
+                    
+                    info_value = (
+                        max_size
+                        | (spi_block << 16)
+                        | (dir_header_size << 20)
+                        | (address_mode << 24)
+                        | (entry_version << 26)
+                        | (1 << 31)  # Version bit
+                    ) & 0xFFFFFFFF
+                else:
+                    # Version 0: [9:0]Size [13:10]SpiBlock [28:14]BaseAddr [30:29]Mode [31]=0
+                    max_size &= 0x3FF  # 10 bits
+                    
+                    try:
+                        base_bits = int(self._base_bits_edit.text(), 0) & 0x7FFF if self._base_bits_edit else 0
+                    except ValueError:
+                        base_bits = int(self._header_original.get("base_bits", 0)) & 0x7FFF
+                    
+                    info_value = (
+                        max_size
+                        | (spi_block << 10)
+                        | (base_bits << 14)
+                        | (address_mode << 29)
+                    ) & 0xFFFFFFFF
+                
+                if info_value != (int(info_original) & 0xFFFFFFFF):
+                    update["info"] = info_value
+        
         return update or None
 
     # ------------------------------------------------------------------

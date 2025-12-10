@@ -72,7 +72,8 @@ class SoftFuseChain:
 
 
 # Path to the JSON file containing soft fuse field definitions.
-_JSON_PATH = Path(__file__).parent.parent / "updatable" / "softfuse_fields.json"
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_JSON_PATH = _MODULE_ROOT.parent / "Updatable" / "softfuse_fields.json"
 
 # Cached fields loaded from JSON.
 _CACHED_FIELDS: Optional[List[SoftFuseField]] = None

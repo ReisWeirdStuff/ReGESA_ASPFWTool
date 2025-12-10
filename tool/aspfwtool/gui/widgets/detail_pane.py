@@ -14,6 +14,7 @@ from __future__ import annotations
 import re
 from collections import OrderedDict
 from datetime import datetime
+from enum import Enum
 from functools import partial
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
@@ -309,6 +310,8 @@ class DetailPane(QWidget):
             return "-"
         if isinstance(value, (list, tuple)):
             return ", ".join(self._stringify_metadata_value(v) for v in value)
+        if isinstance(value, Enum):
+            return str(value.value)
         return str(value)
 
     def _parse_detail_text(self, detail_text: Optional[str]) -> OrderedDict[str, str]:

@@ -143,9 +143,9 @@ _COMBO_TYPE_CHOICES: Dict[int, str] = {
 }
 
 
-def _type_choice_table(kind: str) -> Dict[int, list]:
+def _type_choice_table(kind) -> Dict[int, list]:
     if _constants.is_combo_dir(kind):
-        return {key: ["combo", None, label] for key, label in _COMBO_TYPE_CHOICES.items()}
+        return {key: ["combo", label, label] for key, label in _COMBO_TYPE_CHOICES.items()}
     if _constants.is_real_psp_dir(kind):
         return PSPTypeNames
     if _constants.is_real_bios_dir(kind):

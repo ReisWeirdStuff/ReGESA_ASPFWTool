@@ -153,57 +153,57 @@ class ActionsMixin:
         """Create the File menu and its actions."""
         file_menu = self.menuBar().addMenu("&File")
 
-        open_action = QAction("&Open File…", self)
+        open_action = QAction("&Open File...", self)
         open_action.triggered.connect(self._open_files)
         file_menu.addAction(open_action)
 
         file_menu.addSeparator()
 
-        self._save_as_action = QAction("Save &As…", self)
+        self._save_as_action = QAction("Save &As...", self)
         self._save_as_action.setEnabled(False)
         self._save_as_action.triggered.connect(self._save_as)
         file_menu.addAction(self._save_as_action)
 
-        self._export_capsule_action = QAction("Export capsule to &BIN…", self)
+        self._export_capsule_action = QAction("Export capsule to &BIN...", self)
         self._export_capsule_action.setEnabled(False)
         self._export_capsule_action.triggered.connect(self._export_capsule_image)
         file_menu.addAction(self._export_capsule_action)
 
         file_menu.addSeparator()
 
-        efs_action = QAction("Set &EFS offset…", self)
+        efs_action = QAction("Set &EFS offset...", self)
         efs_action.triggered.connect(self._prompt_efs_offset)
         file_menu.addAction(efs_action)
 
-        export_guid_action = QAction("Export GUID &catalog…", self)
+        export_guid_action = QAction("Export GUID &catalog...", self)
         export_guid_action.triggered.connect(self._export_guid_catalog)
         file_menu.addAction(export_guid_action)
 
-        export_psp_action = QAction("Export &PSP tree…", self)
+        export_psp_action = QAction("Export &PSP tree...", self)
         export_psp_action.triggered.connect(self._export_psp_structure)
         file_menu.addAction(export_psp_action)
 
-        export_xml_action = QAction("Export firmware and generate &XML…", self)
+        export_xml_action = QAction("Export firmware and generate &XML...", self)
         export_xml_action.triggered.connect(self._export_firmware_xml)
         file_menu.addAction(export_xml_action)
 
         if self.maintenance_mode:
-            load_guid_action = QAction("Load GUID &CSV…", self)
+            load_guid_action = QAction("Load GUID &CSV...", self)
             load_guid_action.triggered.connect(self._load_guid_csv)
             file_menu.addAction(load_guid_action)
 
-            export_amd_action = QAction("Export &AMD modules…", self)
+            export_amd_action = QAction("Export &AMD modules...", self)
             export_amd_action.triggered.connect(self._export_amd_modules)
             file_menu.addAction(export_amd_action)
 
-            append_agesa_action = QAction("Append AGESA &version…", self)
+            append_agesa_action = QAction("Append AGESA &version...", self)
             append_agesa_action.triggered.connect(self._show_append_agesa_dialog)
             file_menu.addAction(append_agesa_action)
 
         file_menu.addSeparator()
 
         search_menu = file_menu.addMenu("&Search")
-        self.search_action = QAction("&Find…", self)
+        self.search_action = QAction("&Find...", self)
         self.search_action.setShortcut(QKeySequence.Find)
         self.search_action.triggered.connect(self._show_search_dialog)
         search_menu.addAction(self.search_action)

@@ -73,31 +73,64 @@ class DirHeaderReal:
         return struct.pack(self._FORMAT, self.Cookie, self.CRC32, self.Count, self.Info)
 
     # Computed properties from Info bitfield
-    # [31:30]Mode [29:15]Base [14:11]Align [10:1]MaxSize [0]Rsv
+    # Version bit at [31] determines layout:
+    # Version 0: [9:0]Size [13:10]SpiBlockSize [28:14]BaseAddr [30:29]Mode [31]=0
+    # Version 1: [15:0]Size [19:16]SpiBlockSize(power) [23:20]HeaderSize [25:24]Mode [27:26]EntryVer [30:28]Rsvd [31]=1
+
+    @property
+    def Version(self) -> int:
+        return (self.Info >> 31) & 0x1
 
     @property
     def MaxSize(self) -> int:
-        return (self.Info >> 1) & 0x3FF
+        """Directory size in 4KB units."""
+        if self.Version == 1:
+            return self.Info & 0xFFFF  # 16 bits for version 1
+        else:
+            return self.Info & 0x3FF   # 10 bits for version 0
 
     @property
     def SpiBlockSize(self) -> int:
-        return (self.Info >> 11) & 0x0F
+        """SPI block size field (raw value)."""
+        if self.Version == 1:
+            return (self.Info >> 16) & 0x0F  # 4 bits, encoded as power of 2
+        else:
+            return (self.Info >> 10) & 0x0F  # 4 bits, direct value
+
+    @property
+    def DirHeaderSize(self) -> int:
+        """Directory header size in 1KB units (version 1 only)."""
+        if self.Version == 1:
+            return (self.Info >> 20) & 0x0F
+        else:
+            return 0  # Not available in version 0
 
     @property
     def BaseAddressBits(self) -> int:
-        return (self.Info >> 15) & 0x7FFF
+        """Base address bits (version 0 only)."""
+        if self.Version == 1:
+            return 0  # Not available in version 1
+        else:
+            return (self.Info >> 14) & 0x7FFF  # 15 bits for version 0
 
     @property
     def AddressMode(self) -> int:
-        return (self.Info >> 30) & 0x03
+        if self.Version == 1:
+            return (self.Info >> 24) & 0x03
+        else:
+            return (self.Info >> 29) & 0x03
+
+    @property
+    def EntryVersion(self) -> int:
+        """Entry version (version 1 only)."""
+        if self.Version == 1:
+            return (self.Info >> 26) & 0x03
+        else:
+            return 0  # Not available in version 0
 
     @property
     def BaseAddress(self) -> int:
         return self.BaseAddressBits << 12
-
-    @property
-    def ReservedBit0(self) -> int:
-        return self.Info & 0x1
 
 
 def parse_dir_header(buf: bytes, off: int, kind: DirKind):
@@ -371,7 +404,7 @@ def build_dir_family_map(buf: bytes, dirs: Optional[List[Directory]]) -> Dict[in
             if nm not in fams[off]:
                 fams[off].append(nm)
 
-    # 1) 2PSP/2BHD → $PSP/$BHD by combo PSPID
+    # 1) 2PSP/2BHD -> $PSP/$BHD by combo PSPID
     for d in dirs:
         if not is_combo_dir(d.kind):
             continue
@@ -398,7 +431,7 @@ def build_dir_family_map(buf: bytes, dirs: Optional[List[Directory]]) -> Dict[in
                 continue
             _add(child_off, platform_names_for_pspid(int(ent.pspid)))
 
-    # 2) $BHD → $BL2 via type 0x70
+    # 2) $BHD -> $BL2 via type 0x70
     for d in dirs:
         if d.kind != DirKind.BHD_L1:
             continue
@@ -429,7 +462,7 @@ def build_dir_family_map(buf: bytes, dirs: Optional[List[Directory]]) -> Dict[in
             if child_off is not None:
                 _add(child_off, parent)
 
-    # 3) $PSP → $PL2 via 0x40/0x48/0x4A
+    # 3) $PSP -> $PL2 via 0x40/0x48/0x4A
     for d in dirs:
         if d.kind != DirKind.PSP_L1:
             continue
@@ -460,7 +493,7 @@ def build_dir_family_map(buf: bytes, dirs: Optional[List[Directory]]) -> Dict[in
             if child_off is not None:
                 _add(child_off, parent)
 
-    # 4) $PL2 → $BL2 via 0x49
+    # 4) $PL2 -> $BL2 via 0x49
     for d in dirs:
         if d.kind != DirKind.PSP_L2:
             continue

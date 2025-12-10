@@ -37,7 +37,7 @@ if TYPE_CHECKING:
     from .models import LoadedImage
 
 
-# Alignment enum → byte alignment table from FFS spec
+# Alignment enum -> byte alignment table from FFS spec
 ALIGN_TABLE = {
     0: 1,  # no special requirement
     1: 16,

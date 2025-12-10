@@ -38,15 +38,16 @@ _VARIANT_FIELDS = ("hashes", "variants", "entries")
 
 _SKIP_KEYS = set(_COLLECTION_KEYS + ("hash", "digest"))
 
+# Cached paths - computed once at module load
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
+_PSP_VERSIONS_PATH = _UPDATABLE_DIR / "agesa_psp_versions.json"
+_UEFI_VERSIONS_PATH = _UPDATABLE_DIR / "agesa_uefi_versions.json"
+
 
 def _get_split_db_paths() -> tuple[Path, Path]:
     """Return paths to the split AGESA PSP and UEFI version JSON files."""
-    package_root = Path(__file__).resolve().parent.parent
-    updatable_dir = package_root / "updatable"
-    return (
-        updatable_dir / "agesa_psp_versions.json",
-        updatable_dir / "agesa_uefi_versions.json",
-    )
+    return (_PSP_VERSIONS_PATH, _UEFI_VERSIONS_PATH)
 
 
 def _load_from_path(path: Path) -> Dict[str, Any]:

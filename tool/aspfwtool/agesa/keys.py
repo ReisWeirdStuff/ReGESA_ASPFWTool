@@ -227,7 +227,7 @@ def _parse_kdb_entry(b: bytes, off: int):
     Per-key record (two tolerated layouts). Returns dict or None.
 
     Layout A (length & mod_bits provided):
-      00 u32 total_entry_len (≈0x150 or 0x250)
+      00 u32 total_entry_len (~0x150 or 0x250)
       04 u32 version (=1)
       08 u32 reserved
       0C u32 exponent (LE)
@@ -401,7 +401,7 @@ def ingest_keys_from_kdb(
 
     dec_res = _crypto.decrypt_body_if_needed(body_raw, hdr.encrypted)
     if hdr.is_encrypted and dec_res.method is None:
-        # Cannot decrypt → cannot ingest keys.
+        # Cannot decrypt -> cannot ingest keys.
         logger = get_logger()
         logger.warning(f"[Keyring] KEY_DATABASE at 0x{off_spi:X} is encrypted and no decryptor is configured;"
         " skipping.")

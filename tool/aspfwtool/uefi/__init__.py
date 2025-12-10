@@ -48,8 +48,8 @@ from .ffs import (
 
 # GUID Name Mapping (Loaded from JSON)
 
-
-_GUID_JSON_PATH = Path(__file__).parent.parent / "updatable" / "guid_names.json"
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_GUID_JSON_PATH = _MODULE_ROOT.parent / "Updatable" / "guid_names.json"
 
 
 def _load_guid_name_map() -> Dict[UUID, str]:

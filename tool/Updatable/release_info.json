@@ -1,0 +1,34 @@
+{
+    "version": "Pre-Alpha 25.0.0.2",
+    "build_date": "2025-12-11",
+    "release_notes": [
+                "add last commit sha to release_info.json",
+                "optimize AI 'optimized' comment/dialog to use ASCII chars only",
+                "enable combo directory edit/insert dialog, was disabled previously for debug reasons",
+                "correct 'additional info fields' parsing",
+                "update directory 'updatable' location"
+            ],
+    "changelog": {
+        "Pre-Alpha 25.0.0.1": {
+            "date": "2025-12-08",
+            "sha": "f61c59a235a16a98777c5af9eef1c9b1417c0051",
+            "changes": [
+                "Patched import error (f61c59a)"
+            ]
+        },
+        "Pre-Alpha 25.0.0.0": {
+            "date": "2025-12-08",
+            "sha": "2908ae15dafef340456ef32d2ce704c0e5b5ad9a",
+            "changes": [
+                "Initial Pre-Alpha release",
+                "Release of ASPFWTool",
+                "Version numbering format: <state> <Year>.<Major>.<Minor>.<Patch>"
+            ]
+        }
+    },
+    "authors": [
+        "ReisWeirdStuff"
+    ],
+    "repository": "https://github.com/ReisWeirdStuff/ReGESA_ASPFWTool",
+    "license": "GPLv3"
+}

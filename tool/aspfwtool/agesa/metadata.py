@@ -39,7 +39,8 @@ SMU Platform Identification:
     We also hash the entry to map the AGESA version (agesa.py), current smu method should be good enough. 
 """
 
-_UPDATABLE_DIR = Path(__file__).resolve().parent.parent / "updatable"
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
 
 
 @dataclass(frozen=True)

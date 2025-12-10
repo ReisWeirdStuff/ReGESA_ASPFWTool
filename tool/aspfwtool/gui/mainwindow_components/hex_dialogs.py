@@ -259,7 +259,7 @@ class HexDialogsMixin:
         search_layout = QHBoxLayout()
         search_label = QLabel("Search:", dialog)
         search_edit = QLineEdit(dialog)
-        search_edit.setPlaceholderText("Enter token name or UID…")
+        search_edit.setPlaceholderText("Enter token name or UID...")
         search_edit.setClearButtonEnabled(True)
         search_layout.addWidget(search_label)
         search_layout.addWidget(search_edit)

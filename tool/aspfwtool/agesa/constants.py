@@ -98,8 +98,10 @@ class DirKind(Enum):
 # Cookie-to-DirKind mapping
 COOKIE_KIND: Dict[bytes, DirKind] = {dk.cookie: dk for dk in DirKind}
 
-# Editable directory kinds (non-combo real directories)
+# Editable directory kinds (including combo directories)
 EDITABLE_DIRS: frozenset[DirKind] = frozenset({
+    DirKind.COMBO_PSP,
+    DirKind.COMBO_BHD,
     DirKind.PSP_L1,
     DirKind.PSP_L2,
     DirKind.BHD_L1,
@@ -163,7 +165,8 @@ def get_zone(kind: DirKind | None) -> str:
 
 """ JSON Loaders for Updatable Data""" 
 
-_UPDATABLE_DIR = Path(__file__).resolve().parent.parent / "updatable"
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
 
 
 def _load_program_table() -> Dict[str, Dict[str, Any]]:

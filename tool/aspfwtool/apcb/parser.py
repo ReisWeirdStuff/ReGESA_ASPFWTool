@@ -20,9 +20,10 @@ from typing import Dict, List, Tuple
 
 # Configuration Paths
 
-
-_APCB_V2_JSON = Path(__file__).parent.parent / "updatable" / "apcbv2_tokens.json"
-_APCB_V3_JSON = Path(__file__).parent.parent / "updatable" / "apcbv3_tokens.json"
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
+_APCB_V2_JSON = _UPDATABLE_DIR / "apcbv2_tokens.json"
+_APCB_V3_JSON = _UPDATABLE_DIR / "apcbv3_tokens.json"
 
 
 # APCB Header Constants

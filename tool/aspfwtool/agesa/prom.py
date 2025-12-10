@@ -10,6 +10,7 @@ This module provides:
 """
 
 from dataclasses import dataclass
+from functools import lru_cache
 from typing import List, Optional, Dict
 import json
 import string
@@ -18,14 +19,17 @@ from pathlib import Path
 
 # Constants and Configuration
 
+_MODULE_ROOT = Path(__file__).resolve().parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
 
 PROM_MAGIC = b"_PT_"
 PROM_HEADER_LEN = 0x200
 
 
+@lru_cache(maxsize=1)
 def _load_promontory_config() -> dict:
-    """Load promontory configuration from program_table.json."""
-    json_path = Path(__file__).parent.parent / "updatable" / "program_table.json"
+    """Load promontory configuration from program_table.json (cached)."""
+    json_path = _UPDATABLE_DIR / "program_table.json"
     try:
         with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -34,8 +38,9 @@ def _load_promontory_config() -> dict:
         return {}
 
 
+@lru_cache(maxsize=1)
 def _build_label_types() -> Dict[str, str]:
-    """Build firmware label to type name mapping from JSON config.
+    """Build firmware label to type name mapping from JSON config (cached).
     
     Maps signatures like '3306A_FW' -> 'Prom', '3328A_FW' -> 'Prom21'
     """
@@ -49,8 +54,9 @@ def _build_label_types() -> Dict[str, str]:
     return result
 
 
+@lru_cache(maxsize=1)
 def _build_tail_skips() -> Dict[str, int]:
-    """Build type name to tail skip mapping from JSON config."""
+    """Build type name to tail skip mapping from JSON config (cached)."""
     config = _load_promontory_config()
     result = {}
     for sig_key, sig_data in config.items():
@@ -61,7 +67,7 @@ def _build_tail_skips() -> Dict[str, int]:
     return result
 
 
-# Build lookup tables from JSON configuration
+# Build lookup tables from JSON configuration (loaded once at module init)
 _PROM_SIGNATURES = _load_promontory_config()
 _PROM_LABEL_TYPES = _build_label_types()
 _PROM_TAIL_SKIPS = _build_tail_skips()

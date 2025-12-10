@@ -225,7 +225,7 @@ def resolve_entry_offset(
         res = _record_candidate(d_off + val, "mode=part", allow_partial=True)
         if res:
             return res
-    # PL2/BL2 quirk: bit63 set → lower32 offset from dir base
+    # PL2/BL2 quirk: bit63 set -> lower32 offset from dir base
     if kind is not None and kind.is_level2 and (ptr64 & (1 << 63)):
         res = _record_candidate(
             d_off + (ptr64 & 0xFFFFFFFF), "pl2+base", allow_partial=True

@@ -1,3 +1,10 @@
+# Tmp files
+tmp/
+*.tmp
+
+# Test/Maintenance scripts
+Private/
+
 # MacOS FS junks
 .DS_Store
 .AppleDouble

@@ -1023,7 +1023,7 @@ class PspEntryOperationsMixin:
                 f"Unable to open the directory editor:\n{details}",
             )
             return
-        self._status_message(f"Opening editor for {directory.kind.value} directory…")
+        self._status_message(f"Opening editor for {directory.kind.value} directory...")
         dialog.setWindowModality(Qt.ApplicationModal)
         dialog.setModal(True)
         dialog.ensurePolished()

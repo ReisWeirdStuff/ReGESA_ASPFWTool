@@ -142,7 +142,7 @@ class EntryEditDialog(QDialog):
         self.path_edit.setReadOnly(True)
         path_layout.addWidget(self.path_edit)
 
-        self.browse_button = QPushButton("Browse…", self.path_field_widget)
+        self.browse_button = QPushButton("Browse...", self.path_field_widget)
         self.browse_button.setObjectName("browse_button")
         path_layout.addWidget(self.browse_button)
 
@@ -186,6 +186,7 @@ class EntryEditDialog(QDialog):
         self.type_combo.setInsertPolicy(QComboBox.NoInsert)
         self.type_combo.setMaxVisibleItems(16)
         form.addRow("Entry type:", self.type_combo)
+        self._type_combo_label = form.labelForField(self.type_combo)
         if self._lock_entry_type:
             self.type_combo.setEditable(False)
             self.type_combo.setEnabled(False)
@@ -195,12 +196,23 @@ class EntryEditDialog(QDialog):
         self.size_display.setFocusPolicy(Qt.NoFocus)
         self.size_display.setText(_format_dual_size(self._initial_size))
         form.addRow("Entry size:", self.size_display)
+        self._size_display_label = form.labelForField(self.size_display)
         form.addRow("Declared size:", self.declared_size_display)
+        self._declared_size_label = form.labelForField(self.declared_size_display)
 
         if _constants.is_combo_dir(directory_kind):
             self.require_data = False
             self._set_file_inputs_visible(False)
-            self.declared_size_display.setText("Pointer entry (no payload)")
+            # Hide size fields for combo directories
+            self.size_display.setVisible(False)
+            if self._size_display_label:
+                self._size_display_label.setVisible(False)
+            self.declared_size_display.setVisible(False)
+            if self._declared_size_label:
+                self._declared_size_label.setVisible(False)
+            # Rename type to Mode for combo directories
+            if self._type_combo_label:
+                self._type_combo_label.setText("Mode:")
             initial_match = self._initial_size
             self.combo_pspid_edit = QLineEdit(self)
             self.combo_pspid_edit.setPlaceholderText(
@@ -212,7 +224,7 @@ class EntryEditDialog(QDialog):
             except Exception:
                 initial_match_value = None
             self._configure_hex_input(self.combo_pspid_edit, 8, initial_match_value)
-            form.addRow("Match value:", self.combo_pspid_edit)
+            form.addRow("PSPID:", self.combo_pspid_edit)
             self.combo_pointer_edit = QLineEdit(self)
             self.combo_pointer_edit.setPlaceholderText(
                 "Hex directory address (64-bit)"
@@ -223,7 +235,7 @@ class EntryEditDialog(QDialog):
                 16,
                 pointer_initial if pointer_initial is not None else None,
             )
-            form.addRow("Directory address:", self.combo_pointer_edit)
+            form.addRow("Address:", self.combo_pointer_edit)
             self._config_provider = self._collect_combo_config
         elif _constants.is_real_psp_dir(directory_kind):
             fields = PspTypeFields.from_value(initial_type or 0)
@@ -295,6 +307,8 @@ class EntryEditDialog(QDialog):
             self.address_mode_label_widget = None
             self.address_mode_combo_label = None
             self.address_mode_label_label = None
+            self.pointer_value_edit = None
+            self.pointer_value_label = None
             pointer_text = "-"
             if self._initial_pointer is not None:
                 pointer_text = f"0x{self._initial_pointer:016X}"
@@ -372,7 +386,8 @@ class EntryEditDialog(QDialog):
                 self.pointer_value_label = None
         if self.pointer_value_label is not None:
             self.pointer_value_label.setVisible(False)
-        self.pointer_value_edit.setVisible(False)
+        if self.pointer_value_edit is not None:
+            self.pointer_value_edit.setVisible(False)
 
         if self._allow_ish_builder:
             self._init_ish_widgets(form)

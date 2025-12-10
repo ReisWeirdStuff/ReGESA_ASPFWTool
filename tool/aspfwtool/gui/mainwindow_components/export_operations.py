@@ -34,6 +34,10 @@ if TYPE_CHECKING:
 _PEI_FILE_TYPES = {0x04, 0x06, 0x08}
 _DXE_FILE_TYPES = {0x05, 0x07, 0x09, 0x0A, 0x0C, 0x0D, 0x0E, 0x0F}
 
+# Module root and updatable directory (cached at module load)
+_MODULE_ROOT = Path(__file__).resolve().parent.parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
+
 
 class ExportOperationsMixin:
     """
@@ -79,7 +83,7 @@ class ExportOperationsMixin:
             return
 
         # Load tracking.json to get whitelist of GUIDs to export
-        tracking_path = Path(__file__).parent.parent.parent / "updatable" / "tracking.json"
+        tracking_path = _UPDATABLE_DIR / "tracking.json"
         guid_whitelist: set = set()
         if tracking_path.exists():
             try:
@@ -315,9 +319,7 @@ class ExportOperationsMixin:
         from ...uefi import GUID_NAME_MAP
         
         # Path to GUID data JSON
-        _GUID_DATA_PATH = (
-            Path(__file__).resolve().parent.parent.parent / "updatable" / "guid_names.json"
-        )
+        guid_data_path = _UPDATABLE_DIR / "guid_names.json"
         
         entries: list[tuple[str, str]] = []
 
@@ -371,8 +373,8 @@ class ExportOperationsMixin:
                 "guids": {}
             }
             try:
-                if _GUID_DATA_PATH.exists():
-                    guid_data = json.loads(_GUID_DATA_PATH.read_text(encoding="utf-8"))
+                if guid_data_path.exists():
+                    guid_data = json.loads(guid_data_path.read_text(encoding="utf-8"))
                     if not isinstance(guid_data, dict):
                         guid_data = dict(_EMPTY_GUID_DATA)
                 else:
@@ -395,7 +397,7 @@ class ExportOperationsMixin:
             else:
                 output_data = dict(sorted(guid_json.items()))
             try:
-                _GUID_DATA_PATH.write_text(
+                guid_data_path.write_text(
                     json.dumps(output_data, indent=2) + "\n",
                     encoding="utf-8",
                 )
@@ -429,20 +431,20 @@ class ExportOperationsMixin:
             lines.append("=" * 80)
         elif depth == 1:
             lines.append("")
-            lines.append(f"{indent}┌─ {text}")
-            lines.append(f"{indent}│")
+            lines.append(f"{indent}+-- {text}")
+            lines.append(f"{indent}|")
         else:
             # Entry level - use tree characters
-            lines.append(f"{indent}├─ {text}")
+            lines.append(f"{indent}+-- {text}")
         
         detail = item.data(DETAIL_ROLE)
         if detail:
             detail_lines = str(detail).splitlines()
             for entry in detail_lines:
                 if depth <= 1:
-                    lines.append(f"{indent}│  {entry}")
+                    lines.append(f"{indent}|  {entry}")
                 else:
-                    lines.append(f"{indent}│    {entry}")
+                    lines.append(f"{indent}|    {entry}")
         
         child_count = item.rowCount()
         for row in range(child_count):
@@ -452,4 +454,4 @@ class ExportOperationsMixin:
         
         # Close directory sections
         if depth == 1:
-            lines.append(f"{indent}└─────")
+            lines.append(f"{indent}+-----")

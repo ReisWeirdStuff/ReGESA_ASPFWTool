@@ -83,9 +83,9 @@ from ...agesa import constants as _constants
 PSP_DIFF_COLUMN = 5
 UEFI_DIFF_COLUMN = 5
 
-_GUID_DATA_PATH = (
-    Path(__file__).resolve().parent.parent.parent / "updatable" / "guid_names.json"
-)
+_MODULE_ROOT = Path(__file__).resolve().parent.parent.parent
+_UPDATABLE_DIR = _MODULE_ROOT.parent / "Updatable"
+_GUID_DATA_PATH = _UPDATABLE_DIR / "guid_names.json"
 
 _PEI_FILE_TYPES = {0x04, 0x06, 0x08}
 # Treat any executable DXE-class module as exportable, including SMM/MM
@@ -1493,9 +1493,9 @@ class MainWindow(
             else:
                 message = f"Loaded {path_name}"
         elif stage == "parsing":
-            message = f"Parsing {path_name}…"
+            message = f"Parsing {path_name}..."
         else:
-            message = f"Reading {path_name}…"
+            message = f"Reading {path_name}..."
         self.statusBar().showMessage(message)
         QApplication.processEvents()  # Keep UI responsive
 
@@ -1537,7 +1537,7 @@ class MainWindow(
             if image_name:
                 msg = f"Building tree: {image_name} (entry {current}/{total})"
             else:
-                msg = f"Building tree ({current}/{total})…"
+                msg = f"Building tree ({current}/{total})..."
             self.statusBar().showMessage(msg)
             QApplication.processEvents()  # Keep UI responsive
 

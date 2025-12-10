@@ -634,7 +634,6 @@ class XmlExportMixin:
                 if ish_record is None:
                     continue
 
-                # Build ISH header dict matching BuildPspDirectory.py format
                 ish_dict = {
                     "Base": base_addr,
                     "BootPriority": getattr(ish_record, "boot_priority", 0),
@@ -653,8 +652,6 @@ class XmlExportMixin:
     def _build_ish_header_xml(self: "MainWindow", ish_dict: Dict) -> Optional[Element]:
         """
         Build XML element for an ISH_HEADER.
-        
-        Format matches BuildPspDirectory.py OutPutIshHeaderXml:
         <ISH_HEADER Base="0x..." BootPriority="0x..." ... />
         """
         element = Element("ISH_HEADER")
@@ -704,10 +701,15 @@ class XmlExportMixin:
                 # Calculate size from header info
                 max_size_kb = header.MaxSize
                 if max_size_kb > 0:
-                    dir_element.set("Size", f"0x{max_size_kb * 0x400:x}")
+                    dir_element.set("Size", f"0x{max_size_kb * 0x1000:x}")  # 4KB units
                 spi_block = header.SpiBlockSize
                 if spi_block > 0:
-                    dir_element.set("SpiBlockSize", f"0x{1 << (spi_block + 8):x}")
+                    # Version 0: direct value * 4KB; Version 1: 4KB * (1 << value)
+                    if header.Version == 1:
+                        spi_size = 0x1000 << spi_block  # 4KB * (1 << spi_block)
+                    else:
+                        spi_size = spi_block * 0x1000  # direct value * 4KB
+                    dir_element.set("SpiBlockSize", f"0x{spi_size:x}")
                 # AddressMode for this directory
                 if header.AddressMode > 0:
                     dir_element.set("AddressMode", f"0x{header.AddressMode:x}")

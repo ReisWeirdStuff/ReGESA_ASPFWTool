@@ -364,23 +364,23 @@ class TreeOperationsMixin:
             if is_directory:
                 operations_spec.extend(
                     [
-                        ("extract_dir", "Extract Directory…"),
+                        ("extract_dir", "Extract Directory..."),
                         (
                             "edit_directory",
-                            "Edit Directory…",
+                            "Edit Directory...",
                         )
                         if directory_kind in EDITABLE_DIRECTORY_KINDS
                         else None,
-                        ("insert_entry", "Insert Entry…"),
+                        ("insert_entry", "Insert Entry..."),
                     ]
                 )
             elif entry_index_value is not None:
                 operations_spec.extend(
                     [
-                        ("edit_entry", "Edit Entry…"),
+                        ("edit_entry", "Edit Entry..."),
                         ("extract_entry", "Extract"),
-                        ("replace_entry", "Replace Entry…"),
-                        ("insert_entry", "Insert Entry…"),
+                        ("replace_entry", "Replace Entry..."),
+                        ("insert_entry", "Insert Entry..."),
                         ("remove_entry", "Remove Entry"),
                     ]
                 )
@@ -391,7 +391,7 @@ class TreeOperationsMixin:
                     and payload.get("offset") is not None
                 ):
                     operations_spec.append(
-                        ("view_apcb_tokens", "View APCB Tokens…")
+                        ("view_apcb_tokens", "View APCB Tokens...")
                     )
                 base_type = raw_type & 0xFF if isinstance(raw_type, int) else None
                 if (
@@ -401,7 +401,7 @@ class TreeOperationsMixin:
                     and payload.get("offset") is not None
                 ):
                     operations_spec.append(
-                        ("microcode_details", "Show microcode details…")
+                        ("microcode_details", "Show microcode details...")
                     )
         # Handle UEFI items inside PSP context (e.g., files/volumes inside compressed BIOS 0x62)
         elif context_tag == "psp" and payload.get("uefi_kind") is not None:
@@ -416,12 +416,12 @@ class TreeOperationsMixin:
             # Allow UEFI operations for any BIOS entry (0x62), compressed or not
             if has_bios_info and not is_placeholder:
                 if uefi_kind == "volume":
-                    operations_spec.append(("uefi_insert_append", "Insert Entry…"))
+                    operations_spec.append(("uefi_insert_append", "Insert Entry..."))
                 elif uefi_kind == "file":
                     operations_spec.extend([
-                        ("uefi_replace_entry", "Replace Entry…"),
+                        ("uefi_replace_entry", "Replace Entry..."),
                         ("uefi_remove_entry", "Remove Entry"),
-                        ("uefi_insert_before", "Insert Entry Before…"),
+                        ("uefi_insert_before", "Insert Entry Before..."),
                     ])
         elif context_tag == "uefi":
             uefi_kind = payload.get("uefi_kind")
@@ -439,23 +439,23 @@ class TreeOperationsMixin:
                 and not is_placeholder
             ):
                 operations_spec.append(
-                    ("uefi_edit_compressed", "Edit Decompressed Payload…")
+                    ("uefi_edit_compressed", "Edit Decompressed Payload...")
                 )
             if not is_placeholder:
                 if uefi_kind == "volume" and (
                     payload.get("offset") is not None or has_virtual_context
                 ):
                     operations_spec.append(
-                        ("uefi_insert_append", "Insert Entry…")
+                        ("uefi_insert_append", "Insert Entry...")
                     )
                 elif uefi_kind == "file" and (
                     payload.get("offset") is not None or has_virtual_context
                 ):
                     operations_spec.extend(
                         [
-                            ("uefi_replace_entry", "Replace Entry…"),
+                            ("uefi_replace_entry", "Replace Entry..."),
                             ("uefi_remove_entry", "Remove Entry"),
-                            ("uefi_insert_before", "Insert Entry Before…"),
+                            ("uefi_insert_before", "Insert Entry Before..."),
                         ]
                     )
         elif payload.get("offset") is not None:

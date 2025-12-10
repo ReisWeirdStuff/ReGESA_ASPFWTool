@@ -506,7 +506,7 @@ def _format_psp_result(window, locator: dict, item: QStandardItem, detail: Optio
             dir_label = f"{directories[directory_index].kind.value} {directory_index:02d}"
         else:
             dir_label = f"Directory {directory_index}"
-    title = f"{dir_label} → {item.text()}"
+    title = f"{dir_label} -> {item.text()}"
     summary = item.data(SUMMARY_ROLE)
     subtitle = detail or (str(summary) if summary else None)
     return title, subtitle
@@ -516,9 +516,9 @@ def _format_uefi_result(window, item: QStandardItem, payload: dict, detail: Opti
     image_index = payload.get("image_index")
     image_count = len(window.loaded_images) if hasattr(window, "loaded_images") else 0
     if image_index is None or image_count <= 1:
-        title = f"UEFI → {item.text()}"
+        title = f"UEFI -> {item.text()}"
     else:
-        title = f"UEFI image {image_index} → {item.text()}"
+        title = f"UEFI image {image_index} -> {item.text()}"
     summary = item.data(SUMMARY_ROLE)
     subtitle = detail or (str(summary) if summary else None)
     return title, subtitle

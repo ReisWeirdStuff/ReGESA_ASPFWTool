@@ -1,19 +1,25 @@
 # ReGESA_ASPFWTool
+**ASPFWTool** (ASP Firmware Tool)
+Aims "legacy" firmware security research\
+and to add "new" processor (AM4, Zen3) support to old (Raven) OEM PCs.
+
+> [!WARNING]
+> Due to the complexity of AMD-SP and UEFI firmware architectures,\
+> modifying the firmware image content is extremely risky and may corrupt the image.
+>
+> Therefore, it is not recommended to use this tool to modify any UEFI image.\
+> Please treat it as a "read-only" tool.
+>
 
 > [!NOTE]
 > This program is now in **Pre-Alpha** and released for testing, GLHF.
 > 
 > The current code quality is poor, it's a disaster.\
-> But basic functionality like entry parsing, simple insert/replace/remove/zlib/lzma works
+> But basic functionality like entry parsing, simple insert/replace/remove/zlib/lzma should... work.
 >
 > Please report any bugs or issues you encounter.\
 > Please provide the firmware image file and the steps to reproduce the bug so that I can trace and patch it.
 >
-
- **ASPFWTool** (ASP Firmware Tool)\
- Aims "legacy" firmware security research (as the new architecture "openSIL" will replace "AGESA", or at least a part of it)\
- and to add "new" processor (AM4, Zen3) support to old (Raven) OEM PCs.
-
 
 ## Overview
 **ASPFWTool** is a graphical utility designed to explore UEFI firmware, with a focus on the ASP firmware region.
@@ -192,6 +198,12 @@ python3 .\run_gui.py
 ```
 
 ---
+
+## Other very useful tools
+The tools listed below have been used to perform integrity checks on modified UEFI images during the debug process.
+- UEFITool: https://github.com/LongSoft/UEFITool/
+- PSPTool: https://github.com/PSPReverse/PSPTool/
+
 
 ## License
 This project is licensed under the GPLv3 license.\
