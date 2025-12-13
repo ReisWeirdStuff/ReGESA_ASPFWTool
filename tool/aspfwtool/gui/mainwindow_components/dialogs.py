@@ -43,6 +43,9 @@ from ..widgets.detail_pane import NoScrollComboBox
 class EntryEditDialog(QDialog):
     """Dialog used to configure PSP/BHD entry metadata during replace/insert."""
 
+    # Class-level variable to remember the last file selection directory
+    _last_browse_directory: Optional[Path] = None
+
     def __init__(
         self,
         parent: QWidget,
@@ -428,8 +431,14 @@ class EntryEditDialog(QDialog):
         return spin
 
     def _select_file(self) -> None:
+        # Use last browse directory if available, otherwise current working directory
+        initial_dir = (
+            str(EntryEditDialog._last_browse_directory)
+            if EntryEditDialog._last_browse_directory is not None
+            else str(Path.cwd())
+        )
         file_path, _ = QFileDialog.getOpenFileName(
-            self, "Select entry payload", str(Path.cwd())
+            self, "Select entry payload", initial_dir
         )
         if not file_path:
             return
@@ -440,6 +449,8 @@ class EntryEditDialog(QDialog):
             return
         self._data_blob = bytes(data)
         self._file_path = Path(file_path)
+        # Remember the directory for next time
+        EntryEditDialog._last_browse_directory = Path(file_path).parent
         if self.path_edit is not None:
             self.path_edit.setText(str(file_path))
         self._update_size_widgets()

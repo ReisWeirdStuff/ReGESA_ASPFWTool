@@ -754,49 +754,30 @@ def is_bios_compressed(a, b=None) -> bool:
     return bool((type_id >> 19) & 1)
 
 
-
 # Directory Checksum Helpers
 
 
-def _fletcher32_le(data: bytes, seed: Tuple[int, int]) -> int:
-    """Compute Fletcher-32 checksum (little-endian) with seed."""
-    sum1, sum2 = seed
-    mod = 0xFFFF
-    length = len(data)
-    for idx in range(0, length, 2):
-        word = data[idx]
-        if idx + 1 < length:
-            word |= data[idx + 1] << 8
-        sum1 = (sum1 + word) % mod
-        sum2 = (sum2 + sum1) % mod
-    return ((sum2 << 16) | sum1) & 0xFFFFFFFF
-
-
-def detect_directory_checksum_seed(
-    buf: bytes, directory: Directory
-) -> Optional[Tuple[int, int]]:
-    """Detect the checksum seed used for a directory."""
-    if directory.offset is None:
-        return None
-    head = int(directory.offset)
-    header_len = dir_header_len(directory.kind)
-    span = entry_span(directory.kind)
-    total_len = header_len + directory.count * span
-    if head < 0 or head + total_len > len(buf):
-        return None
-    blob = bytearray(buf[head : head + total_len])
-    stored = int.from_bytes(blob[4:8], "little", signed=False)
-    blob[4:8] = b"\x00\x00\x00\x00"
-    for seed in ((0, 0), (0xFFFF, 0xFFFF)):
-        if _fletcher32_le(blob, seed) == stored:
-            return seed
-    return (0, 0)
+def _fletcher32_le(words: List[int]) -> int:
+    """Compute Fletcher-32 checksum over 16-bit words."""
+    c0 = 0xFFFF
+    c1 = 0xFFFF
+    for i, w in enumerate(words):
+        c0 += w
+        c1 += c0
+        if (i % 360) == 0:
+            c0 = (c0 & 0xFFFF) + (c0 >> 16)
+            c1 = (c1 & 0xFFFF) + (c1 >> 16)
+    c0 = (c0 & 0xFFFF) + (c0 >> 16)
+    c1 = (c1 & 0xFFFF) + (c1 >> 16)
+    c0 = (c0 & 0xFFFF) + (c0 >> 16)
+    c1 = (c1 & 0xFFFF) + (c1 >> 16)
+    return ((c1 & 0xFFFF) << 16) | (c0 & 0xFFFF)
 
 
 def compute_directory_checksum(
-    buf: bytes, directory: Directory, seed: Optional[Tuple[int, int]] = None
+    buf: bytes, directory: Directory
 ) -> Optional[int]:
-    """Compute directory checksum."""
+    """Compute directory checksum using Fletcher-32."""
     if directory.offset is None:
         return None
     head = int(directory.offset)
@@ -807,9 +788,7 @@ def compute_directory_checksum(
         return None
     blob = bytearray(buf[head : head + total_len])
     blob[4:8] = b"\x00\x00\x00\x00"
-    chosen = (
-        seed if seed is not None else detect_directory_checksum_seed(buf, directory)
-    )
-    if chosen is None:
-        chosen = (0, 0)
-    return _fletcher32_le(blob, chosen)
+    # Skip cookie (start at offset 4), exclude last 2 words
+    words = [blob[i] | (blob[i + 1] << 8) for i in range(4, total_len, 2)]
+    words = words[: (total_len // 2) - 2]
+    return _fletcher32_le(words)

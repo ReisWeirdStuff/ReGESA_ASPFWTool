@@ -76,7 +76,7 @@ from ..utils.roles import (
     HEX_ROLE,
 )
 from ..utils.diff_utils import iter_tree_items, compute_diff_statuses
-from ...agesa.directory import Directory, detect_directory_checksum_seed, compute_directory_checksum
+from ...agesa.directory import Directory, compute_directory_checksum
 from ...agesa import softfuse as _softfuse
 from ...agesa import constants as _constants
 
@@ -887,8 +887,7 @@ class MainWindow(
     ) -> None:
         if directory is None or directory.offset is None:
             return
-        seed = detect_directory_checksum_seed(image.data, directory)
-        checksum = compute_directory_checksum(image.data, directory, seed)
+        checksum = compute_directory_checksum(image.data, directory)
         if checksum is None:
             return
         crc_off = int(directory.offset) + 4

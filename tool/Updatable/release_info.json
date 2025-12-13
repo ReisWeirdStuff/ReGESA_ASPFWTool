@@ -1,14 +1,22 @@
 {
-    "version": "Pre-Alpha 25.0.0.2",
-    "build_date": "2025-12-11",
+    "version": "Pre-Alpha 25.0.0.3",
+    "build_date": "2025-12-13",
     "release_notes": [
+                "patch, system unbootable after modifying directory (incorrect Fletcher-32 checksum)",
+                "improve UX, remember last file select dialog location"
+            ],
+    "changelog": {
+        "Pre-Alpha 25.0.0.2": {
+            "date": "2025-12-11",
+            "sha": "d13bc58e77b067dd6e227137636cfbb4a5d40927",
+            "changes": [
                 "add last commit sha to release_info.json",
                 "optimize AI 'optimized' comment/dialog to use ASCII chars only",
                 "enable combo directory edit/insert dialog, was disabled previously for debug reasons",
                 "correct 'additional info fields' parsing",
                 "update directory 'updatable' location"
-            ],
-    "changelog": {
+            ]
+        },
         "Pre-Alpha 25.0.0.1": {
             "date": "2025-12-08",
             "sha": "f61c59a235a16a98777c5af9eef1c9b1417c0051",

@@ -21,7 +21,6 @@ from ..utils.diff_utils import compute_diff_statuses, iter_tree_items
 from ...agesa.directory import (
     Directory,
     compute_directory_checksum,
-    detect_directory_checksum_seed,
 )
 
 if TYPE_CHECKING:
@@ -144,8 +143,7 @@ class ImageModificationMixin:
         """Update the checksum for a directory in the image data."""
         if directory is None or directory.offset is None:
             return
-        seed = detect_directory_checksum_seed(image.data, directory)
-        checksum = compute_directory_checksum(image.data, directory, seed)
+        checksum = compute_directory_checksum(image.data, directory)
         if checksum is None:
             return
         crc_off = int(directory.offset) + 4

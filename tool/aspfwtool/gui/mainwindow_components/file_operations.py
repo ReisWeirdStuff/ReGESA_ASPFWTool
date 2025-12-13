@@ -32,6 +32,9 @@ if TYPE_CHECKING:
 class FileOperationsMixin:
     """Mixin providing file I/O operations."""
 
+    # Class-level variable to remember the last save directory
+    _last_save_directory: Optional[Path] = None
+
     def _save_as(self: "MainWindow") -> None:
         """Save the current firmware image to a file."""
         if not self.loaded_images:
@@ -76,14 +79,22 @@ class FileOperationsMixin:
 
         image = self.loaded_images[target_index]
         default_name = image.path.name or "firmware.bin"
+        # Use last save directory if available, otherwise default to opened file's location
+        if FileOperationsMixin._last_save_directory is not None:
+            initial_dir = FileOperationsMixin._last_save_directory
+        else:
+            initial_dir = image.path.parent if image.path.parent.exists() else Path.cwd()
         file_path, _ = QFileDialog.getSaveFileName(
             self,
             "Save firmware image",
-            str(Path.cwd() / default_name),
+            str(initial_dir / default_name),
             "Firmware images (*.bin *.rom *.cap *.fd *.bio *.img *.fv *.efi);;All files (*)",
         )
         if not file_path:
             return
+        
+        # Remember the directory for next time
+        FileOperationsMixin._last_save_directory = Path(file_path).parent
         
         # Execute any staged UEFI actions before saving
         self._apply_staged_uefi_actions(image, target_index)
